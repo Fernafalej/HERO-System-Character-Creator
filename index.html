@@ -1,0 +1,166 @@
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Character Builder</title>
+	<link rel="stylesheet" href="style.css" title="Basic">
+	<script src = "classes.js"></script>
+	<script src = "variables.js"></script>
+	<script src = "skills.js"></script>
+	<script src = "script.js"></script>
+	<link rel="stylesheet" href="style.css" title="Basic">
+	
+</head>
+<body>
+	<div id="container">
+		<div id="playerinfo"></div>
+		<div id="characterinfo" ></div>
+		<div id="campaigninfo" ></div>
+		<div id="characteristics" class="charpart">
+			<div class="title">Characteristics
+			</div>
+			<div id="charTable" class="table">
+				<div id="charTableHead" class="tableHead">
+					<div class="cell charTableHeadCell">Char</div>
+					<div class="cell charTableHeadCell">Base</div><!-- better Name -->
+					<div class="cell charTableHeadCell">Total</div>
+					<div class="cell charTableHeadCell">CP</div>
+					<div class="cell charTableHeadCell">Roll</div>
+					<div class="cell charTableHeadCell">Total Roll</div>
+				</div>
+			</div>
+			<div id="statCost" class="cost">
+			Total Cost : 0
+			</div>
+		</div>
+		<div id="status" class="charpart">
+			<div class="title">Current Status
+			</div>
+			<div class="table center">
+				<div class="row firstrow">
+					<div class="cell"></div>
+					<div class="cell">Maximum</div>
+					<div class="cell">Current</div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">END</div>
+					<div class="cell" id="currentStatusEnd"></div>
+					<div class="cell"></div>
+				</div>
+				<div class="row">
+					<div class="cell  firstcell">BODY</div>
+					<div class="cell" id="currentStatusBody"></div>
+					<div class="cell"></div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">STUN</div>
+					<div class="cell" id="currentStatusStun"></div>
+					<div class="cell"></div>
+				</div>
+			</div>
+		</div>
+		<div id="experience" class="charpart">
+			<div class="title">Experience Points
+			</div>
+			<div class="table center">
+				<div class="row">
+					<div class="cell firstcell">Total EXP</div>
+					<div class="cell" id="totalExp"></div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">Starting EXP</div>
+					<div class="cell"><input id="startingExp" type="number" min="0" /></div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">EXP Earned</div>
+					<div class="cell"><input id="earnedExp" type="number" min="0"/></div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">EXP Spent</div>
+					<div class="cell" id="totalExpSpent"></div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">EXP Unspent</div>
+					<div class="cell" id="unspentExp"></div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">Total Comp</div>
+					<div class="cell" id="totalComp"></div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">Starting Comp</div>
+					<div class="cell"><input id="startingComp" type="number" min="0"/></div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">Earned Comp</div>
+					<div class="cell"><input id="earnedComp" type="number" min="0"/></div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">Comp to EXP</div>
+					<div class="cell" id="cte"></div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">Unspent Comp</div>
+					<div class="cell" id="unspentComp"></div>
+				</div>
+			</div>
+		</div>
+		<!--<div id="vitals" class="charpart">
+			<div class="title">Vital Information
+			</div>
+		</div>
+		<div id="hitlocations" class="charpart">
+			<div class="title">Hit Location Chart
+			</div>
+		</div>
+		<div id="attacks&maneuvers" class="charpart">
+			<div class="title">Attacks & Maneuvers
+			</div>
+		</div>
+		<div id="defenses" class="charpart">
+			<div class="title">Defenses
+			</div>
+		</div>
+		<div id="combatmodifiers" class="charpart">
+			<div class="title">Combat Modifiers
+			</div>
+		</div>
+		<div id="senses" class="charpart">
+			<div class="title">Senses
+			</div>
+		</div>
+		<div id="movement" class="charpart">
+			<div class="title">Movement
+			</div>
+		</div>-->
+		<div id="skills" class="charpart">
+			<div class="title">Skills, Perks & Talents
+			</div>
+			<div id="listOfSPT" class="table"></div>
+			<div id="sptCost" class="cost">
+			Total Cost : 0
+			</div>
+			<div id="addSPTdiv" class="center">
+			<div id="addSPTButton" class="button noprint">Add Skill, Perk or Talent</div>
+			</div>
+		</div>
+		<div id="powers" class="charpart">
+		<div class="title">Powers
+			</div>
+			<div id="listOfPowers"></div>
+			<div id="addPowerdiv" class="center">
+			<div id="addPowerButton" class="button noprint">Add Power</div>
+			</div>
+		</div>
+		<div id="complications" class="charpart">
+			<div class="title">Complications
+			</div>
+		</div>
+	</div>
+	<!-- Overlays -->
+	<div id="sptoverlay" class="overlay hidden">
+		<div id="sptPanel" class="overlayPanel">
+			<div id="hidesptOverlay" class="closeButton hideable button">Close</div>
+		</div>
+	</div>
+</body>
+</html>
