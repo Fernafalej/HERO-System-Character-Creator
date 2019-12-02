@@ -1,0 +1,31 @@
+standart
+
+Standart Background
+
+Kategorien
+Animal Handler PRE
+Forgery INT
+Gambling INT
+Navigation INT
+Survival INT
+Transport Familitarity
+Weapon Familiarity
+Weaponsmith
+
+
+
+
+Other
+Autofire Skills 1-4 Combat
+Combat Skill Levels Combat
+Cramming INT
+Defense Maneuver 1-4 Combat
+Language Background
+Martial Arts Combat
+Penalty Skill Levels Combat
+Power Varies
+Rapid Attack Combat
+Two-Weapon Fighting
+Skill Levels no type
+
+SKILL ENHANCERS

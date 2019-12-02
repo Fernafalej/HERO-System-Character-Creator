@@ -3,7 +3,7 @@
 	<meta charset="utf-8"/>
 	<title>Character Builder</title>
 	<link rel="stylesheet" href="style.css" title="Basic">
-	<script src = "classes.js"></script>
+	<!--<script src = "classes.js"></script>-->
 	<script src = "variables.js"></script>
 	<script src = "skills.js"></script>
 	<script src = "script.js"></script>
@@ -28,7 +28,7 @@
 					<div class="cell charTableHeadCell">Total Roll</div>
 				</div>
 			</div>
-			<div id="statCost" class="cost">
+			<div id="characteristicsCost" class="cost">
 			Total Cost : 0
 			</div>
 		</div>
@@ -68,11 +68,11 @@
 				</div>
 				<div class="row">
 					<div class="cell firstcell">Starting EXP</div>
-					<div class="cell"><input id="startingExp" type="number" min="0" /></div>
+					<div class="cell"><input id="startEXP" type="number" min="0" /></div>
 				</div>
 				<div class="row">
 					<div class="cell firstcell">EXP Earned</div>
-					<div class="cell"><input id="earnedExp" type="number" min="0"/></div>
+					<div class="cell"><input id="expEarned" type="number" min="0"/></div>
 				</div>
 				<div class="row">
 					<div class="cell firstcell">EXP Spent</div>
@@ -88,11 +88,11 @@
 				</div>
 				<div class="row">
 					<div class="cell firstcell">Starting Comp</div>
-					<div class="cell"><input id="startingComp" type="number" min="0"/></div>
+					<div class="cell"><input id="startComp" type="number" min="0"/></div>
 				</div>
 				<div class="row">
 					<div class="cell firstcell">Earned Comp</div>
-					<div class="cell"><input id="earnedComp" type="number" min="0"/></div>
+					<div class="cell"><input id="compEarned" type="number" min="0"/></div>
 				</div>
 				<div class="row">
 					<div class="cell firstcell">Comp to EXP</div>
@@ -133,14 +133,14 @@
 			</div>
 		</div>-->
 		<div id="skills" class="charpart">
-			<div class="title">Skills, Perks & Talents
+			<div class="title">Skills
 			</div>
-			<div id="listOfSPT" class="table"></div>
-			<div id="sptCost" class="cost">
+			<div id="listOfSkills" class="table"></div>
+			<div id="skillsCost" class="cost">
 			Total Cost : 0
 			</div>
-			<div id="addSPTdiv" class="center">
-			<div id="addSPTButton" class="button noprint">Add Skill, Perk or Talent</div>
+			<div id="addSkillsdiv" class="center">
+				<div id="showSkillsOverlay" class="button showable noprint">Add/Remove Skills</div>
 			</div>
 		</div>
 		<div id="powers" class="charpart">
@@ -157,9 +157,40 @@
 		</div>
 	</div>
 	<!-- Overlays -->
-	<div id="sptoverlay" class="overlay hidden">
-		<div id="sptPanel" class="overlayPanel">
-			<div id="hidesptOverlay" class="closeButton hideable button">Close</div>
+	<div id="SkillsOverlay" class="overlay hidden">
+		<div id="skillsPanel" class="overlayPanel">
+			<div class="panelHolder">
+				<div class="title">Add Skill</div>
+				<div class="panelTable">
+				<div class="panelSegment">
+						<div class="panelCell">Agility Skills</div>
+						<div class="panelCell"><select id ="selectskillsAgility">
+						</select></div>
+						<div id="AgilitySelected" class="panelCell">
+						</div>
+				</div>
+				<div class="panelSegment">
+					<div class="cell">Intellect Skills</div>
+					<div class="cell"><select id ="selectskillsIntellect"></select></div>
+					<div class="cell"></div>
+				</div>
+				<div class="panelSegment">Interaction Skills
+					<select id ="selectskillsInteraction">
+					</select>
+				</div>
+				<div class="panelSegment">Background Skills
+					<select id ="selectskillsBackground">
+					</select>
+				</div>
+				<div class="panelSegment">Combat Skills
+					<select id ="selectskillsCombat">
+					</select>
+				</div>
+				<div class="panelSegment">New Skill!</div>
+				<div class="panelSegment">Skill Enhancers</div>
+				<div class="panelSegment">Skill Levels</div>
+			</div>
+			<div id="hideSkillsOverlay" class="closeButton hideable button">Close</div>
 		</div>
 	</div>
 </body>

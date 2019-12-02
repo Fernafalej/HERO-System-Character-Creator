@@ -84,6 +84,7 @@ class Stat{
 		
 		document.getElementById(this.name+"CP").innerHTML = this.totalCost;
 		this.roll = this.roll();
+		//console.log(this.roll);
 		document.getElementById(this.name+"Roll").innerHTML = this.roll;
 		if(monobinding[this.name] != undefined){
 			//console.log(this.name);
@@ -121,10 +122,6 @@ class Stat{
 	static roll(x){	
 		if(x.secondary){
 			return ""; //secondary have no roll
-		}
-		if(x.total != undefined){
-			//console.log(x.total);
-			return ((Math.round((9+x.total/5)).toString()) +"-");
 		}
 		return ((Math.round((9+x.value/5))).toString() +"-");
 		//TODO rounding

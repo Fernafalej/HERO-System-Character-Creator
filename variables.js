@@ -1,14 +1,13 @@
 var variables = {
 	"characteristics":{
-		"Dexterity":{
-			"name": "Dexterity",
-			"abr" : "DEX",
+		"Strength":{
+			"name": "Strength",
+			"abr" : "STR",
 			"base": 10,
 			"cost": 1,
 			"secondary": false,			
 			"value": 10,
-			
-			"test":9,
+
 			"totalV":8,
 			"totalMods": [
 			],
@@ -16,28 +15,124 @@ var variables = {
 			"totalRMods":[
 			],
 			"pings":[
-				["skills","Acrobatics"],
-				
+				["totalCosts","characteristics"],
 			],
 			"update":function(){
 				updateCharacteristic(this);
+			},
+			"totalCost":function (){
+				return Math.ceil((this.value-this.base)*this.cost); //returns the total CP cost
+			},
+			"roll": function(){
+				if(this.secondary){
+					return ""; //secondary have no roll
+				}
+				return (Math.round((9+this.value/5).toString()) +"-");
+				//TODO rounding
 			}
 		},
-		"Strength":{}
+		//TODO cost = 2
+		"Dexterity":{
+			"name": "Dexterity",
+			"abr" : "DEX",
+			"base": 10,
+			"cost": 2,
+			"secondary": false,			
+			"value": 10,
+			
+			"totalV":10,
+			"totalMods": [
+			],
+			"totalR" : "11-",
+			"totalRMods":[
+			],
+			"pings":[
+				["totalCosts","characteristics"],
+			],
+			"update":function(){
+				updateCharacteristic(this);
+			},
+			"totalCost":function (){
+				return Math.ceil((this.value-this.base)*this.cost); //returns the total CP cost
+			},
+			"roll": function(){
+				if(this.secondary){
+					return ""; //secondary have no roll
+				}
+				return (Math.round((9+this.value/5).toString()) +"-");
+				//TODO rounding
+			}
+		},
 	},
 	"skills":{
-		"Acrobatics":{
-			"name":"Acrobatics",
-			"type": "Agility",
-			"basedOn": "Dexterity",
-			"baseCost":3,
-			"perLevel":2,
-			"level":0,
-			"totalCost":3,
+		
+	},
+	"totalCosts":{
+		"characteristics":{
+			"name":"characteristics",
+			"value" : 0,
 			
-			"update": function(){
-				//TODO
+			"update":function(){
+				this.value = 0;
+				for(var s in variables[this.name]){
+					this.value += variables[this.name][s].totalCost();
+				}
+				document.getElementById(this.name +"Cost").innerHTML = "Total Cost : " +this.value;
+				ping(this["pings"]);
+			},
+			"pings":[
+				["exp"],
+			],
+		},
+		"skills":{
+			"name":"skills",
+			"value" : 0,
+			
+			"update":function(){
+				this.value = 0;
+				for(var s in variables[this.name]){
+					this.value += variables[this.name][s].totalCost();
+				}
+				document.getElementById(this.name +"Cost").innerHTML = "Total Cost : " +this.value;
+				ping(this["pings"]);
+			},
+			"pings":[
+				["exp"],
+			],
+		}
+	},
+	"exp":{
+		"startEXP":150,
+		"expEarned":0,
+		"startComp":50,
+		"compEarned":0,
+		
+		"pings":[
+		
+		],
+		"update": function(){
+			
+			this.startEXP = document.getElementById("startEXP").valueAsNumber;
+			this.expEarned = document.getElementById("expEarned").valueAsNumber;
+			this.startComp = document.getElementById("startComp").valueAsNumber;
+			this.compEarned = document.getElementById("compEarned").valueAsNumber;
+			
+			var totalComp = this.startComp+this.compEarned;
+			var cte = 0; //TODO
+			var totalEXP = this.startEXP+this.expEarned + cte;
+			var expSpent = 0;
+			for(var i in variables["totalCosts"]){
+				expSpent += variables["totalCosts"][i].value;
 			}
+			var expUnspent = totalEXP-expSpent;
+			var unspentComp = totalComp-cte;
+			
+			document.getElementById("totalExp").innerHTML = totalEXP;
+			document.getElementById("totalExpSpent").innerHTML = expSpent;
+			document.getElementById("unspentExp").innerHTML = expUnspent;
+			document.getElementById("totalComp").innerHTML = totalComp;
+			document.getElementById("cte").innerHTML = cte;
+			document.getElementById("unspentComp").innerHTML = unspentComp;
 		}
 	}
 }
@@ -66,13 +161,16 @@ function updateCharacteristic(ch){
 		temp += obj;
 		obj = variables;
 	}
-	ch.totalRoll = temp.toString() +"-";
-	redrawChar(ch.name);
+	ch.totalR = temp.toString() +"-";
+	redrawChar(ch);
 	ping(ch["pings"]);
 }
 
-function redrawChar(name){
-	//TODO
+function redrawChar(ch){
+	document.getElementById(ch.name+"Total").innerHTML = ch.totalV;
+	document.getElementById(ch.name+"CP").innerHTML = ch.totalCost();
+	document.getElementById(ch.name+"Roll").innerHTML = ch.roll();
+	document.getElementById(ch.name+"TotalRoll").innerHTML = ch.totalR;
 }
 
 function ping(p){

@@ -10,6 +10,13 @@ body{
 	color: black;
 	font-size: 20px;
 }
+select{
+	font-size:20px;
+	font-family: "Times New Roman", Times, serif;
+	border: 0px;
+	text-align: center;
+	background-color:transparent;
+}
 #container{
 	display:flex;
 	flex-wrap:wrap;
@@ -27,7 +34,6 @@ body{
 	margin:5px;
 	color: #000000;
 	overflow: hidden;
-	draggable:true;
 }
 .charpart .title{
 	font-variant:small-caps;
@@ -53,13 +59,16 @@ body{
 }
 .row{
 	display:table-row;
-	width:100%;
+	//width:100%;
 	border: 1px solid black;
 	width: auto;
 }
 .row:hover{
 	background-color:#f0f0f0;
 }
+/*.row::input[type = number]:hover{
+	background-color:#f0f0f0;
+}*/
 .cell{
 	display:table-cell;
 	//min-width:70px;
@@ -85,10 +94,11 @@ body{
 	border: 0px;
 	-moz-appearance:textfield;
 	text-align: center;
+	background-color:transparent;
 }
 
 .cell input[type=number]:hover{
-	background-color:#d0d0d0;
+	//background-color:#d0d0d0;
 	-moz-appearance:none;
 }
 
@@ -121,7 +131,7 @@ body{
 	border: 1px solid lightgrey;
 }
 .hidden{
-	display:none;
+	//display:none;
 }
 .overlay{
 	z-index: 17;
@@ -155,4 +165,36 @@ body{
 	width : 80px;
 	bottom: 4px;
 	left: 325px;
+}
+.panelHolder{
+	border-left: 1px solid black;
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+	border-bottom:1px solid black;
+	border-radius: 5px;
+}
+.panelHolder .title{
+	font-variant:small-caps;
+	font-size:20px;
+	text-align:center;
+	padding: 5px;
+	border-bottom: 1px solid black;
+}
+.panelTabel{
+	display:table;
+}
+.panelSegment{
+	display:table-row;
+	table-layout: fixed;
+	border-bottom: 1px solid black;
+	width:100%;
+}
+.panelRow{
+	display:table-row;
+	//width:100%;
+	border: 1px solid black;
+	width: auto;
+}
+.panelCell{
+	display:table-cell;
 }

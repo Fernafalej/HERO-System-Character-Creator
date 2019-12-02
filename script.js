@@ -1,300 +1,264 @@
-var monobinding={
-	"Strength":function(){
-		for(var i in spt){
-			for(var s in spt[i]){
-				if(spt[i][s].basedOn == "Strength"){}
-			}
-		}
-	},
-	"Dexterity":function(){
-		for(var i in spt){
-			for(var s in spt[i]){
-				if(spt[i][s].basedOn == "Dexterity"){
-					spt[i][s].update();
-				}
-			}
-		}
-	},
-	"Constitution":function(){
-		for(var i in spt){
-			for(var s in spt[i]){
-				if(spt[i][s].basedOn == "Constitution"){
-					spt[i][s].update();
-				}
-			}
-		}
-	},
-	"Intelligence":function(){
-		for(var i in spt){
-			for(var s in spt[i]){
-				if(spt[i][s].basedOn == "Intelligence"){
-					spt[i][s].update();
-				}
-			}
-		}
-	},
-	"Ego":function(){
-		for(var i in spt){
-			for(var s in spt[i]){
-				if(spt[i][s].basedOn == "Ego"){
-					spt[i][s].update();
-				}
-			}
-		}
-	},
-	"Presence":function(){
-		for(var i in spt){
-			for(var s in spt[i]){
-				if(spt[i][s].basedOn == "Presence"){
-					spt[i][s].update();
-				}
-			}
-		}
-	},
-	"Offensive Combat Value":function(){},
-	"Defensive Combat Value":function(){},
-	"Offensive Mental Combat Value":function(){},
-	"Defensive Mental Combat Value":function(){},
-	"Speed":function(){},
-	"Physical Defense":function(){},
-	"Energy Defense":function(){},
-	"Recovery":function(){},
-	"Endurance":function(){
-		document.getElementById("currentStatusEnd").innerHTML = stats["Endurance"].value;
-	},
-	"Body":function (){
-		document.getElementById("currentStatusBody").innerHTML = stats["Body"].value
-	},
-	"Stun":function(){
-		document.getElementById("currentStatusStun").innerHTML = stats["Stun"].value
-	}
-};
-var nameOfObject ={};
-var stats = {};
-var spt = {
-	skills:{},
-	perks:{},
-	talents:{}
-}
-var statsTotalCost = 0;
-var sptTotalCost = 0;
-var exp = {
-	"startEXP":150,
-	"expEarned":0,
-	"startComp":50,
-	"compEarned":0,
+/*var selected = {
+	"Agility" :{},
+	"Intellect":{},
+	"Interaction":{},
+	"Background":{},
+	"Combat":{}
+	
+}*/
+window.onload = function (){
+	generateHidden();
+	loadEventListeners();
+	generateEXP();
+	generateCharacteristics();
+	
+	//variables["characteristics"]["Dexterity"].update();
+	//generateCharacteristics();
+	//generateStats();
+	generateEXP();
+	//skills.Acrobatics.add();
+	generateAddSkillSelects();
+	redrawSkills();	
 }
 
-window.onload = function (){
-	//console.log(exp);
-	//console.log(document.getElementById("startingExp"));
-	variables["characteristics"]["Dexterity"].update();
-	generateStats();
-	generateEXP();
-	redrawSpt();
-	skills.acrobatics.add();
-	
+function loadEventListeners(){
+	loadShowable();
+	loadHideable();
 }
-function generateStats(){
-	var str = new Stat("Strength", "STR",10,10,1,false);
-	var dex = new Stat("Dexterity", "DEX",10,10,2,false);
-	var con = new Stat("Constitution", "CON",10,10,1,false);
-	var inte = new Stat("Intelligence", "INT",10,10,1,false);
-	var ego = new Stat("Ego", "EGO",10,10,1,false);
-	var pre = new Stat("Presence", "PRE",10,10,1,false);
-	var ocv = new Stat("Offensive Combat Value", "OVC",3,3,5,true);
-	var dcv = new Stat("Defensive Combat Value", "DCV",3,3,5,true);
-	var omcv = new Stat("Offensive Mental Combat Value", "OMCV",3,3,3,true);
-	var dmcv = new Stat("Defensive Mental Combat Value", "DMCV",3,3,3,true);
-	var spd = new Stat("Speed", "SPD",2,2,10,true);
-	var pd = new Stat("Physical Defense", "PD",2,2,1,true);
-	var ed = new Stat("Energy Defense", "ED",2,2,1,true);
-	var rec = new Stat("Recovery", "REC",4,4,1,true);
-	var end = new Stat("Endurance", "END",20,20,0.2,true);
-	var body = new Stat("Body", "BODY",10,10,1,true);
-	var stun = new Stat("Stun", "STUN",20,20,0.5,true);
+
+
+
+function generateCharacteristics(){
+	for(var i in variables["characteristics"]){
+		var stat = variables["characteristics"][i];
+		var div = document.createElement("DIV");
+		div.id = stat.name;
+		div.className = "stat row";
+		var row=[];
+		document.getElementById("charTable").appendChild(div);	
+		for(var i = 0; i <= 5; i++){
+			row[i] = document.createElement("DIV");
+			//row[i].innerHTML = "HI";
+			row[i].className = "cell";
+			div.appendChild(row[i]);
+		}
+		
+		row[0].innerHTML=stat.abr;
+		
+		var input = document.createElement("INPUT");
+		input.type="number";
+		input.min = 0;
+		input.value = stat.value;
+		input.id = "input"+stat.name;
+		input.addEventListener("input",function(){
+			//TODO
+				var stat = variables["characteristics"][this.id.substring(5)];
+				stat.value = this.valueAsNumber;
+				stat.update();
+			}
+		)
+		row[1].appendChild(input);
+		row[2].id = stat.name+"Total";
+		row[3].id = stat.name+"CP";
+		row[4].id = stat.name+"Roll";
+		row[5].id = stat.name+"TotalRoll";
+		stat.update();
+	}
 }
 
 function generateEXP(){
 	//Starting EXP
-	var input = document.getElementById("startingExp");
-	input.value = exp.startEXP;
+	var input = document.getElementById("startEXP");
+	input.value = variables.exp.startEXP;
 	input.addEventListener("input",function(){
-			exp.startEXP = this.valueAsNumber;
-			updateTotalExp();
+			variables.exp.startEXP = this.valueAsNumber;
+			variables.exp.update();
 		}
 	)
 	//Earned EXP
-	input = document.getElementById("earnedExp");
-	input.value = exp.expEarned;
+	input = document.getElementById("expEarned");
+	input.value = variables.exp.expEarned;
 	input.addEventListener("input",function(){
-			exp.expEarned = this.valueAsNumber;
-			updateTotalExp();
+			variables.exp.expEarned = this.valueAsNumber;
+			variables.exp.update();
 		}
 	)
-	
-	//EXP Spent
-	updateAllCost();
-	//Total Comp
-	updateTotalComp();
-	//Starting Comp
-	input = document.getElementById("startingComp");
-	input.value = exp.startComp;
+	input = document.getElementById("startComp");
+	input.value = variables.exp.startComp;
 	input.addEventListener("input",function(){
-			exp.startComp = this.valueAsNumber;
-			updateTotalComp();
+			variables.exp.startComp = this.valueAsNumber;
+			variables.exp.update();
 		}
 	)
 	
 	//Earned Comp
-	input = document.getElementById("earnedComp");
-	input.value = exp.compEarned;
+	input = document.getElementById("compEarned");
+	input.value = variables.exp.compEarned;
 	input.addEventListener("input",function(){
-			exp.compEarned = this.valueAsNumber;
-			updateTotalComp();
+			variables.exp.compEarned = this.valueAsNumber;
+			variables.exp.update();
 		}
 	)
-	//Comp To EXP
-	updateCompToExp();
-	//Total Comp
-	updateTotalExp();
-	//Unspent EXP
-	updateUnspentExp();
-	//UnspentComp
-	updateUnspentComp();
 }
 
-function getStatCost(){
-	var i = 0;
-	for(var s in stats){
-		i += stats[s].totalCost;
-	}
-	return i;
-}
-function getSPTCost(){
-	var sum = 0;
-	for(var i in spt){
-		for(var s in spt[i]){
-			sum += spt[i][s].totalCost;
-		}
-	}
-	return sum;
-}
-function updateTotalExp(){
-	exp.totalExp = exp.startEXP+exp.expEarned+exp.cte;//TODO Comp
-	document.getElementById("totalExp").innerHTML = exp.totalExp;
-	updateUnspentExp();
-}
-function updateTotalComp(){
-	exp.totalComp = exp.startComp+exp.compEarned;
-	document.getElementById("totalComp").innerHTML = exp.totalComp;
-	updateUnspentComp();
-}
-function updateAllCost(){
-	exp.expSpent = statsTotalCost+sptTotalCost;//TODO all costs
-	document.getElementById("totalExpSpent").innerHTML = exp.expSpent;
-	updateUnspentExp();
-	//TODO
-}
-function updateCompToExp(){
-	exp.cte = 0;//TODO
-	document.getElementById("cte").innerHTML = exp.cte;
-	updateTotalExp();
-}
-function updateUnspentExp(){
-	exp.unspentExp = exp.totalExp - exp.expSpent;
-	document.getElementById("unspentExp").innerHTML = exp.unspentExp;
-}
-function updateUnspentComp(){
-	exp.unspentComp = exp.totalComp-exp.cte;
-	document.getElementById("unspentComp").innerHTML = exp.unspentComp;
-}
-function updateStatCost(){
-	statsTotalCost = getStatCost();
-	updateAllCost();
-	document.getElementById("statCost").innerHTML = "Total Cost : " +statsTotalCost;
-	//TODO
-}
-function updateSPTCost(){
-	sptTotalCost = getSPTCost();
-	updateAllCost();
-	document.getElementById("sptCost").innerHTML = "Total Cost : " +sptTotalCost;
-}
 
-function redrawSpt(){
-	var list = document.getElementById("listOfSPT");
+function redrawSkills(){
+	var list = document.getElementById("listOfSkills");
 	list.innerHTML = "";
 	var row = document.createElement("DIV");
 	var name = document.createElement("DIV");
-	var level = document.createElement("DIV");
+	var base = document.createElement("DIV");
+	var total = document.createElement("DIV");
 	var cost = document.createElement("DIV");
 	var roll = document.createElement("DIV");
+	var tRoll = document.createElement("DIV");
 	row.className="tableHead";
 	name.className = "cell";
-	level.className = "cell";
+	base.className = "cell";
+	total.className = "cell";
 	cost.className = "cell";
 	roll.className = "cell";
-	name.style.width = "55%";
-	level.style.width = "15%";
-	cost.style.width = "15%";
-	roll.style.width = "15%";
+	tRoll.className = "cell";
+	name.style.width = "40%";
+	base.style.width = "12%";
+	total.style.width = "12%";
+	cost.style.width = "12%";
+	roll.style.width = "12%";
+	tRoll.style.width = "12%";
 	name.innerHTML = "Name";
-	level.innerHTML = "LvL";
+	base.innerHTML = "Base";
+	total.innerHTML = "Total";
 	cost.innerHTML = "CP";
 	roll.innerHTML = "Roll";
+	tRoll.innerHTML = "Total Roll";
 	row.appendChild(name);
-	row.appendChild(level);
+	row.appendChild(base);
+	row.appendChild(total);
 	row.appendChild(cost);
 	row.appendChild(roll);
+	row.appendChild(tRoll);
 	list.appendChild(row);
-	for(var i in spt){
-		for(var s in spt[i]){
-			addSPTRow(i,s);
-		}
+	for(var i in variables["skills"]){
+		addSkillRow(i);
 	}
 }
-function addSPTRow(i,s){
+function addSkillRow(i){
 	var row = document.createElement("DIV");
-	row.id = "row"+i+s;
-	var list = document.getElementById("listOfSPT");
+	row.id = "row"+i;
+	var list = document.getElementById("listOfSkills");
 	row.className = "row";
 	list.appendChild(row);
 	var name = document.createElement("DIV");
-	name.id = i+s;
+	name.id = i;
 	name.className = "cell";
-	name.innerHTML = spt[i][s].description();
+	var s = variables.skills[i];
+	name.innerHTML = s.description();
 	row.appendChild(name);
 	var level = document.createElement("DIV");
 	level.className = "cell";
 	var levelInput = document.createElement("INPUT");
-	levelInput.value = spt[i][s].level;
+	levelInput.value = variables.skills[i].level;
 	levelInput.type="number";
-	levelInput.min = -2;
-	levelInput.id = "input"+i+"_"+s;
+	levelInput.min = s.min;
+	levelInput.max = s.max;
+	levelInput.id = "input"+i;
 	level.appendChild(levelInput);
 	levelInput.addEventListener("input",function(){
-		var type = this.id.substring(5);
-		type = type.slice(0,type.indexOf("_"));
-		var name = this.id.substring(this.id.indexOf("_")+1);
-		spt[type][name].level = this.valueAsNumber;
-		spt[type][name].update();
-		//TODO update cost
+		var id = this.id.substring(5);
+		variables.skills[id].level = this.valueAsNumber;
+		variables.skills[id].update();
+		variables.totalCosts.skills.update();
 	});
 	row.appendChild(level);
+	var total = document.createElement("DIV");
+	total.id = i+"total";
+	total.className = "cell";
+	row.appendChild(total);
 	var cost = document.createElement("DIV");
-	cost.id = i+s+"cost";
+	cost.id = i+"cost";
 	cost.className = "cell";
 	row.appendChild(cost);
 	var roll = document.createElement("DIV");
-	roll.id = i+s+"roll";
+	roll.id = i+"roll";
 	roll.className = "cell";
 	row.appendChild(roll);
-	spt[i][s].update();
+	var troll = document.createElement("DIV");
+	troll.id = i+"tRoll";
+	troll.className = "cell";
+	row.appendChild(troll);
+	variables.skills[i].update();
 }
-function removeSPTRow(i,s){
-	document.getElementById("row"+i+s);
+function removeSkillRow(i){
+	document.getElementById("row"+i);
 }
+function generateAddSkillSelects(){
+	//Skill Selects
+	var selects = [
+		"Agility",
+		"Intellect",
+		"Interaction",
+		"Background",
+		"Combat"
+	];
+	for(var i = 0; i < selects; i++){
+		document.getElementById("selectskills"+i).innerHTML = "";
+	}
+	for(var i in skills){
+		if(variables["skills"][i] == undefined){
+			var opt = document.createElement("option");
+			opt.innerHTML = skills[i]["name"];
+			opt.id = "option" + skills[i]["type"] + skills[i]["name"];
+			var sel = document.getElementById("selectskills"+skills[i]["type"]);
+			sel.appendChild(opt);	
+		}
+	}
+	for(var i = 0; i < selects.length;i++){
+		var sel = document.getElementById("selectskills"+selects[i]);
+		if(skills[sel.value] != undefined){
+			skills[sel.value].show();
+		}
+		sel.addEventListener("input",function(){
+				var name = this.id.substring(12);
+				selected[name] = this.value;
+				document.getElementById(name+"Selected").innerHTML = this.value;
+				skills[selected[name]].show();
+			}
+		)
+	}
+}
+
 //Display
+function generateHidden(){
+	var hide = document.getElementsByClassName("hidden");
+	for(var j = 0; j < hide.length; j++){
+			var elem = hide[j];
+			elem.defaultDisplay = window.getComputedStyle(elem, null).getPropertyValue("display");
+			elem.style.display = "none";
+		}
+}
+function loadShowable(){
+	var showables = document.getElementsByClassName("showable");
+	for(var i = 0; i < showables.length; i++){
+		var elem = showables[i];
+		elem.addEventListener("click", function(){
+			var str = this.id;
+			str = str.slice((str.indexOf("show")+4),str.length);
+			showId(str);
+		});
+	}
+}
+
+function loadHideable(){
+	var hideables = document.getElementsByClassName("hideable");
+	for(var i = 0; i < hideables.length; i++){
+		var elem = hideables[i];
+		elem.addEventListener("click", function(){
+			var str = this.id;
+			str = str.slice((str.indexOf("hide")+4),str.length);
+			hideId(str);
+		});
+	}	
+}
 function showId(id){
 	document.getElementById(id).style.display = document.getElementById(id).defaultDisplay;
 }
