@@ -1,11 +1,3 @@
-/*var selected = {
-	"Agility" :{},
-	"Intellect":{},
-	"Interaction":{},
-	"Background":{},
-	"Combat":{}
-	
-}*/
 window.onload = function (){
 	generateHidden();
 	loadEventListeners();
@@ -25,8 +17,6 @@ function loadEventListeners(){
 	loadShowable();
 	loadHideable();
 }
-
-
 
 function generateCharacteristics(){
 	for(var i in variables["characteristics"]){
@@ -160,7 +150,7 @@ function addSkillRow(i){
 	levelInput.value = variables.skills[i].level;
 	levelInput.type="number";
 	levelInput.min = s.min;
-	levelInput.max = s.max;
+	if(s.max > 0)levelInput.max = s.max;
 	levelInput.id = "input"+i;
 	level.appendChild(levelInput);
 	levelInput.addEventListener("input",function(){
@@ -186,6 +176,7 @@ function addSkillRow(i){
 	troll.id = i+"tRoll";
 	troll.className = "cell";
 	row.appendChild(troll);
+	variables.totalCosts.skills.update();
 	variables.skills[i].update();
 }
 function removeSkillRow(i){

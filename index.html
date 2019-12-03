@@ -11,10 +11,15 @@
 	
 </head>
 <body>
-	<div id="container">
+	<page size="A4" id="infoPage" class="hidden">
 		<div id="playerinfo"></div>
 		<div id="characterinfo" ></div>
 		<div id="campaigninfo" ></div>
+	</page>
+	<page size="A4">
+	<div id="container">
+	<!-- <div id="maingrid"> -->
+		
 		<div id="characteristics" class="charpart">
 			<div class="title">Characteristics
 			</div>
@@ -38,7 +43,7 @@
 			<div class="table center">
 				<div class="row firstrow">
 					<div class="cell"></div>
-					<div class="cell">Maximum</div>
+					<div class="cell">Max</div>
 					<div class="cell">Current</div>
 				</div>
 				<div class="row">
@@ -133,14 +138,13 @@
 			</div>
 		</div>-->
 		<div id="skills" class="charpart">
-			<div class="title">Skills
-			</div>
+			<div class="title">Skills</div>
 			<div id="listOfSkills" class="table"></div>
 			<div id="skillsCost" class="cost">
 			Total Cost : 0
 			</div>
 			<div id="addSkillsdiv" class="center">
-				<div id="showSkillsOverlay" class="button showable noprint">Add/Remove Skills</div>
+				<div id="showSkillsOverlay" class="button showable noprint">Change Skills</div>
 			</div>
 		</div>
 		<div id="powers" class="charpart">
@@ -160,38 +164,42 @@
 	<div id="SkillsOverlay" class="overlay hidden">
 		<div id="skillsPanel" class="overlayPanel">
 			<div class="panelHolder">
-				<div class="title">Add Skill</div>
+				<div class="title">Add Skill or Category</div>
 				<div class="panelTable">
-				<div class="panelSegment">
-						<div class="panelCell">Agility Skills</div>
-						<div class="panelCell"><select id ="selectskillsAgility">
-						</select></div>
-						<div id="AgilitySelected" class="panelCell">
-						</div>
+					<div class="panelSegment">
+							<div class="panelCell">Agility Skills</div>
+							<div class="panelCell"><select id ="selectskillsAgility">
+							</select></div>
+							<div id="AgilitySelected" class="panelCell">
+							</div>
+					</div>
+					<div class="panelSegment">
+							<div class="panelCell">Intellect Skills</div>
+							<div class="panelCell"><select id ="selectskillsIntellect"></select></div>
+							<div id="IntellectSelected" class="panelCell">
+							</div>
+					</div>
+					<div class="panelSegment">
+							<div class="panelCell">Interaction Skills</div>
+							<div class="panelCell"><select id ="selectskillsInteraction"></select></div>
+							<div id="InteractionSelected" class="panelCell">
+							</div>
+					</div>
+					<div class="panelSegment">Background Skills
+						<select id ="selectskillsBackground">
+						</select>
+					</div>
+					<div class="panelSegment">Combat Skills
+						<select id ="selectskillsCombat">
+						</select>
+					</div>
+					<div class="panelSegment">New Skill!</div>
+					<div class="panelSegment">Skill Enhancers</div>
+					<div class="panelSegment">Skill Levels</div>
 				</div>
-				<div class="panelSegment">
-					<div class="cell">Intellect Skills</div>
-					<div class="cell"><select id ="selectskillsIntellect"></select></div>
-					<div class="cell"></div>
-				</div>
-				<div class="panelSegment">Interaction Skills
-					<select id ="selectskillsInteraction">
-					</select>
-				</div>
-				<div class="panelSegment">Background Skills
-					<select id ="selectskillsBackground">
-					</select>
-				</div>
-				<div class="panelSegment">Combat Skills
-					<select id ="selectskillsCombat">
-					</select>
-				</div>
-				<div class="panelSegment">New Skill!</div>
-				<div class="panelSegment">Skill Enhancers</div>
-				<div class="panelSegment">Skill Levels</div>
-			</div>
 			<div id="hideSkillsOverlay" class="closeButton hideable button">Close</div>
 		</div>
 	</div>
+	</page>
 </body>
 </html>

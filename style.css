@@ -8,15 +8,70 @@ body{
 	cursor: default;
 	background-color : white;
 	color: black;
-	font-size: 20px;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	background: rgb(204,204,204); 
 }
-select{
-	font-size:20px;
-	font-family: "Times New Roman", Times, serif;
+input[type=text]{
 	border: 0px;
 	text-align: center;
 	background-color:transparent;
+	font-size: inherit;
 }
+select{
+	border: 0px;
+	text-align: center;
+	background-color:transparent;
+	font-size: inherit;
+}
+page[size="A4"] {
+  background: white;
+  width: 21cm;
+  height: 29.7cm;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  padding: 1cm;
+  //box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+}
+@media print{
+	body {
+		margin: 0;
+		box-shadow: 0px;
+	}
+	page[size="A4"] {
+		margin: 0;
+		box-shadow: 0px;
+		padding:0;
+	}
+	a[href]:after {
+		content: none !important;
+	}
+	.noprint{
+		display:none;
+	}
+}
+/*#maingrid{
+	//display:grid;
+	grid-gap: 5px;
+	background-color: red;
+	grid-template-columns: repeat(10, 10%);
+	grid-template-rows: repeat(20, 5%);
+	//grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto; 
+	//grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto; 
+}
+#characteristics{
+	grid-column:1 / 5; 
+	grid-row:1 / 2;
+}
+#experience{
+	grid-column: 5 / 8;
+	grid-row:1 / 2;
+}
+#status{
+	grid-column: 8 / 10;
+	grid-row:1 / 2;
+}*/
 #container{
 	display:flex;
 	flex-wrap:wrap;
@@ -28,7 +83,6 @@ select{
 .charpart{
 	border: 2px solid black;
 	border-radius: 15px;
-	font-size:20px;
 	width:30%;
 	min-height: 100px;
 	margin:5px;
@@ -37,7 +91,7 @@ select{
 }
 .charpart .title{
 	font-variant:small-caps;
-	font-size:25px;
+	font-size:20px;
 	text-align:center;
 	padding: 5px;
 	border-bottom: 2px solid black;
@@ -52,7 +106,7 @@ select{
 	background-color:#f0f0f0;
 }
 .table{
-	padding:2px;
+	//padding:2px;
 	display:table;
 	table-layout: fixed;
 	width: 100%;
@@ -73,6 +127,7 @@ select{
 	display:table-cell;
 	//min-width:70px;
 	width: auto;
+	padding:2px;
 	//border: 1px solid black;
 }
 .cell:hover{
@@ -84,17 +139,17 @@ select{
 }
 
 #charTable{
-	margin: 2px;
+	//margin: 2px;
 }
 
 .cell input[type=number]{
 	width:100%;
-	font-size:20px;
-	font-family: "Times New Roman", Times, serif;
+	font-family: inherit;
 	border: 0px;
 	-moz-appearance:textfield;
 	text-align: center;
 	background-color:transparent;
+	font-size: inherit;
 }
 
 .cell input[type=number]:hover{
@@ -197,4 +252,5 @@ select{
 }
 .panelCell{
 	display:table-cell;
+	width: auto;
 }
