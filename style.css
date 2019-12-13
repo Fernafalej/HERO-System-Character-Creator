@@ -179,11 +179,25 @@ page[size="A4"] {
 	border: 1px solid darkgrey;
 	padding:2px;
 	margin: 2px 20px 2px 20px;
-	cursor:pointer;
+	cursor: pointer;
+	text-align:center;
 }
 .button:hover{
 	background-color:#f0f0f0;
 	border: 1px solid lightgrey;
+}
+.addButton{
+	//border: 1px solid darkgrey;
+	background-color:lightgrey;
+	padding:0px 2px 0px 2px;
+	margin:0px 2px 0px 2px;
+	//margin: 2px 20px 2px 20px;
+	cursor: pointer;
+	text-align:center;
+}
+.addButton:hover{
+	background-color:#f0f0f0;
+	//border: 1px solid darkgrey;
 }
 .hidden{
 	//display:none;
@@ -235,22 +249,28 @@ page[size="A4"] {
 	padding: 5px;
 	border-bottom: 1px solid black;
 }
-.panelTabel{
+.panelTable{
 	display:table;
+	width:100%;
 }
 .panelSegment{
 	display:table-row;
 	table-layout: fixed;
 	border-bottom: 1px solid black;
+	//width:auto;
 	width:100%;
 }
 .panelRow{
 	display:table-row;
 	//width:100%;
 	border: 1px solid black;
-	width: auto;
+	//width: auto;
 }
 .panelCell{
 	display:table-cell;
 	width: auto;
+}
+.inline-flex{
+	display:inline-flex;
+	//flex-wrap:column;
 }

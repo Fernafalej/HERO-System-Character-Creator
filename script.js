@@ -133,6 +133,9 @@ function redrawSkills(){
 	}
 }
 function addSkillRow(i){
+	if(variables.skills[i].noRoll){
+		console.log("hi");
+	}
 	var row = document.createElement("DIV");
 	row.id = "row"+i;
 	var list = document.getElementById("listOfSkills");
@@ -200,7 +203,7 @@ function generateAddSkillSelects(){
 			opt.innerHTML = skills[i]["name"];
 			opt.id = "option" + skills[i]["type"] + skills[i]["name"];
 			var sel = document.getElementById("selectskills"+skills[i]["type"]);
-			sel.appendChild(opt);	
+			sel.appendChild(opt);
 		}
 	}
 	for(var i = 0; i < selects.length;i++){
@@ -209,10 +212,13 @@ function generateAddSkillSelects(){
 			skills[sel.value].show();
 		}
 		sel.addEventListener("input",function(){
-				var name = this.id.substring(12);
-				selected[name] = this.value;
-				document.getElementById(name+"Selected").innerHTML = this.value;
-				skills[selected[name]].show();
+				//var name = this.id.substring(12);
+				//console.log(name);
+				//console.log(this.value);
+				//selected[name] = this.value;
+				//document.getElementById(name+"Selected").innerHTML = this.value;
+				//skills[selected[name]].show();
+				skills[this.value].show();
 			}
 		)
 	}

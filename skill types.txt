@@ -17,16 +17,20 @@ Weaponsmith
 
 
 Other
+
 Autofire Skills 1-4 Combat
 Combat Skill Levels Combat
 Cramming INT
 Defense Maneuver 1-4 Combat
-Language Background
-Martial Arts Combat
 Penalty Skill Levels Combat
 Power Varies
+
+Martial Arts Combat
 Rapid Attack Combat
 Two-Weapon Fighting
 Skill Levels no type
+
+Language Background
+
 
 SKILL ENHANCERS

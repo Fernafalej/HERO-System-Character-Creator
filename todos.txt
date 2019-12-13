@@ -8,3 +8,5 @@ TODO add skillenhancers
 TODO Exp Charpart -> title: exp, zellengrößen
 TODO resort skills (drag and drop?)
 TODO if skills empty redraw empty
+
+TODO skillenhancers and talents as powers?

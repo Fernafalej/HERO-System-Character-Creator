@@ -140,6 +140,7 @@
 		<div id="skills" class="charpart">
 			<div class="title">Skills</div>
 			<div id="listOfSkills" class="table"></div>
+			<div id="listOfSkillsNoRoll" class="table"></div>
 			<div id="skillsCost" class="cost">
 			Total Cost : 0
 			</div>
@@ -167,35 +168,44 @@
 				<div class="title">Add Skill or Category</div>
 				<div class="panelTable">
 					<div class="panelSegment">
-							<div class="panelCell">Agility Skills</div>
-							<div class="panelCell"><select id ="selectskillsAgility">
-							</select></div>
-							<div id="AgilitySelected" class="panelCell">
+						<div class="panelCell">Agility Skills</div>
+						<div class="panelCell"><select id ="selectskillsAgility"></select></div>
+							<div class="panelCell">
+								<div id="AgilitySelected" class="inline-flex"></div>
 							</div>
 					</div>
 					<div class="panelSegment">
 							<div class="panelCell">Intellect Skills</div>
 							<div class="panelCell"><select id ="selectskillsIntellect"></select></div>
-							<div id="IntellectSelected" class="panelCell">
+							<div class="panelCell">
+								<div id="IntellectSelected" class="inline-flex"></div>
 							</div>
 					</div>
 					<div class="panelSegment">
 							<div class="panelCell">Interaction Skills</div>
 							<div class="panelCell"><select id ="selectskillsInteraction"></select></div>
-							<div id="InteractionSelected" class="panelCell">
+							<div class="panelCell">
+								<div id="InteractionSelected" class="inline-flex"></div>
 							</div>
 					</div>
-					<div class="panelSegment">Background Skills
-						<select id ="selectskillsBackground">
-						</select>
+					<div class="panelSegment">
+						<div class="panelCell">Background Skills</div>
+						<div class="panelCell"><select id ="selectskillsBackground"></select></div>
+							<div class="panelCell">
+								<div id="BackgroundSelected" class="inline-flex"></div>
+							</div>
 					</div>
-					<div class="panelSegment">Combat Skills
-						<select id ="selectskillsCombat">
-						</select>
+					<div class="panelSegment">
+						<div class="panelCell">Combat Skills</div>
+						<div class="panelCell"><select id ="selectskillsCombat"></select></div>
+							<div class="panelCell">
+								<div id="CombatSelected" class="inline-flex"></div>
+							</div>
 					</div>
 					<div class="panelSegment">New Skill!</div>
 					<div class="panelSegment">Skill Enhancers</div>
 					<div class="panelSegment">Skill Levels</div>
+					<div class="panelSegment">Languages</div>
 				</div>
 			<div id="hideSkillsOverlay" class="closeButton hideable button">Close</div>
 		</div>

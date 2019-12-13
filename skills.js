@@ -22,7 +22,7 @@ var skills = {
 			showStandardSkill(this.name)
 		},
 		"add":function(){
-			addStandardSkill(this.name)
+			addRollSkill(this.name)
 		},
 		"remove":function(){
 			
@@ -49,6 +49,96 @@ var skills = {
 			return this.finalCost;
 		}		
 	},
+	"Acting": {
+		"name":"Acting",
+		"type": "Interaction",
+		"basedOn": "Presence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	/*"Acrobatics2": {
+		"name":"Acrobatics2",
+		"type": "Interaction",
+		"basedOn": "Presence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},*/
 	"Animal Handler":{
 		"name":"Animal Handler",
 		"type": "Interaction",
@@ -59,11 +149,11 @@ var skills = {
 		"everyman":false,
 		"min": -3,
 		"max": -1,
-		"subcategories":false,
+		"usesSubcategories":false,
 		
 		"level":0,
 		"total":0,
-		"finalCost":3,
+		"finalCost":1,
 		"pings":[],
 		"totalMods":[],
 		"totalRMods":[],
@@ -71,10 +161,136 @@ var skills = {
 		
 		"categories":[],
 		"possibleCategories":[
+			"Aquatic Animals",
+			"Birds",
+			"Bovines",
+			"Camels",
+			"Canines",
+			"Dragons",
 			"Elephants",
+			"Felines",
+			"Insects & Arthropods",
+			"Raptors",
+			"Reptiles & Amphibians",
+			"Ursine",
 		],
 		"skillLevels":[],
 		
+		"show":function(){
+			showCategorizedSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+		},
+		"update":function(){
+			updateCategorizedSkill(this.name);
+		},
+		"description":function(){
+			return descriptionCategorizedSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level== 0){
+				return 0;
+			}
+			return this.finalCost;
+		}
+	},
+	"Weapon Familiarity":{
+		
+		//TODO no roll
+		"name":"Weapon Familiarity",
+		"type": "Combat",
+		"basedOn": "Presence",
+		"baseCost":1,
+		"perLevel":2,
+		"perCategory":2,
+		"perSubcategory":1,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		"usesSubcategories":true,
+		
+		"level":0,
+		"total":0,
+		"finalCost":2,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		
+		"categories":[],
+		"possibleCategories":[
+			"Common Meele Weapons",
+			"Common Martial Arts Melee Weapons",
+			"Common Missile Weapons",
+			"Siege Engines",
+			"Small Arms",
+			
+		],
+		"subcategories":[],
+		"possibleSubcategories":{
+			"Common Meele Weapons":[
+				"Unarmed Combat",
+				"Axes & Maces & Hammers & Picks",
+				"Blades",
+				"Clubs",
+				"Fist-Loads",
+				"Polearms & Spears",
+				"Two-Handed Weapons",
+			],
+			"Uncommon Melee Weapons":[
+				"Flails",
+				"Garrote",
+				"Lances",
+				"Nets",
+				"Staffs",
+				"Whips"
+			],
+			"Common Martial Arts Melee Weapons":[
+				"Chain & Rope Weapons",
+				"Ninja Weapons",
+				"Rings",
+				"Staffs",
+				"War Fan"
+			],
+			"Common Missile Weapons":[
+				"Thrown Rocks",
+				"Bows",
+				"Crossbows",
+				"Javelins & Thrown Spears",
+				"Thrown Knives & Axes & Darts"
+			],
+			"Uncommon Missile Weapons":[
+				"Blowguns",
+				"Boomerangs",
+				"Slings"
+			],
+			"Siege Engines":[
+			"Ballista",
+				"Catapult",
+				"Siege Tower",
+				"Trebuchet"
+			],
+			"Small Arms":[
+				"Assault Rifles/LMGs",
+				"Handguns",
+				"Rifles",
+				"Shotguns",
+				"Submachine Guns",
+				"Thrown Grenades"
+			],
+			"Uncommon Modern Weapons":[
+				"Flamethrowers",
+				"Grenade Launchers",
+				"General Purpose/Heavy Machine Guns",
+				"Shoulder-Fired Weapons",
+			],
+		},
+		"skillLevels":[],
+		"freeSubcategories":["Clubs","Fist-Loads"],
 		"show":function(){
 			showCategorizedSkill(this.name)
 		},
@@ -96,7 +312,8 @@ var skills = {
 			}
 			return this.finalCost;
 		}
-	}
+	},
+	
 }
 
 function showStandardSkill(name){
@@ -104,7 +321,7 @@ function showStandardSkill(name){
 	var div = document.getElementById(skill.type+"Selected");
 	div.innerHTML = "";
 	var addButton = document.createElement("DIV");
-	addButton.className = "Button";
+	addButton.className = "addButton";
 	addButton.innerHTML = "Add";
 	addButton.id = "addButton"+ skill.name;
 	var emc = document.createElement("INPUT");
@@ -116,30 +333,35 @@ function showStandardSkill(name){
 	div.appendChild(em);
 	em.appendChild(emc);
 	addButton.addEventListener("click", function(){
-			var name = this.id.substring(9);
-			skills[name].add();
-			var em = document.getElementById("emc" + name);
-			variables["skills"][name].everyman = em.checked;
-			variables["skills"][name].update();
-			var opt = document.getElementById("option"+ skills[name].type+ name);
-			var sel = opt.parentNode;
-			sel.removeChild(opt); //Removes the choosen Option
-			if(sel.childNodes.length == 1){
-				//sel.style.visibility = "hidden"; //if empty don't display me
-				//TODO bad workaround
-				this.parentNode.parentNode.innerHTML ="";
-			}
-			if(skills[sel.value] != undefined){
-				skills[sel.value].show();
-			}
-			else{
-				sel.innerHTML = "";
-			}
+		var name = this.id.substring(9);
+		var opt = document.getElementById("option"+ skills[name].type+ name);
+		if(opt == null){
+			return;
 		}
-	);
+		skills[name].add();
+		var em = document.getElementById("emc" + name);
+		variables["skills"][name].everyman = em.checked;
+		variables["skills"][name].update();
+		
+		
+		var sel = opt.parentNode;
+		sel.removeChild(opt); //Removes the choosen Option
+		if(sel.childNodes.length == 1){
+			
+			//sel.style.visibility = "hidden"; //if empty don't display me
+			//TODO bad workaround
+			this.parentNode.innerHTML ="";
+		}
+		if(skills[sel.value] != undefined){
+			skills[sel.value].show();
+		}
+		else{
+			sel.innerHTML = "";
+		}
+	});
 	div.appendChild(addButton);
 }
-function addStandardSkill(name){
+function addRollSkill(name){
 	//TODO check for skill levels
 	//TODO check for skill enhancers
 	var skill = skills[name];
@@ -236,9 +458,10 @@ function removeStandardSkill(n){
 function showCategorizedSkill(name){
 	var skill = skills[name];
 	var div = document.getElementById(skill.type+"Selected");
+	console.log(skill.type);
 	div.innerHTML = "";
 	var addButton = document.createElement("DIV");
-	addButton.className = "Button";
+	addButton.className = "addButton";
 	addButton.innerHTML = "Add";
 	addButton.id = "addButton"+ skill.name;
 	//This skill needs to be added from Scratch
@@ -264,26 +487,176 @@ function showCategorizedSkill(name){
 			}
 		);
 	}
-	//This skill can get new categories;
+	//This skill exists and can get new categories;
 	else{
+		var table = document.createElement("DIV");
+		table.style.display="table";
+		div.appendChild(table);
+		var row1 = document.createElement("DIV");
+		table.appendChild(row1);
+		row1.style.display="table-row";
 		var div2 = document.createElement("DIV");
-		var span = document.createElement("SPAN");
-		var span2 = document.createElement("SPAN");
+		var span = document.createElement("DIV");
+		var span2 = document.createElement("DIV");
+		div2.style.display ="table-cell";
+		span.style.display ="table-cell";
+		span2.style.display ="table-cell";
 		div2.innerHTML = " Add Categorie: ";
-		div2.appendChild(span);
-		div2.appendChild(span2);
+		row1.appendChild(div2);
+		row1.appendChild(span);
+		row1.appendChild(span2);
 		var input = document.createElement("INPUT");
 		span.appendChild(input);
 		span2.appendChild(addButton);
-		div.appendChild(div2);
+		var row2 = document.createElement("DIV");
+		var div3 = document.createElement("DIV");
+		var span3 = document.createElement("DIV");
+		var span4 = document.createElement("DIV");
+		table.appendChild(row2);
+		row2.appendChild(div3);
+		div3.innerHTML = " Add Categorie: ";
+		row2.appendChild(span3);
+		row2.appendChild(span4);
+		row2.style.display = "table-row";
+		div3.style.display = "table-cell";
+		span3.style.display = "table-cell";
+		span4.style.display = "table-cell";
+		var sel = document.createElement("SELECT");
+		sel.id = "selectPossCategories"+skill.name;
+		for(var i = 0; i < skill.possibleCategories.length;i++){
+			if(!skill.categories.includes(skill.possibleCategories[i])){
+			var opt = document.createElement("option");
+			opt.innerHTML = skill.possibleCategories[i];
+			opt.id = "option" + skill["name"] + skill.possibleCategories[i];			
+			sel.appendChild(opt);
+			}
+		}
+		span3.appendChild(sel);
+		var addButton2 = document.createElement("DIV");
+		span4.appendChild(addButton2);
+		addButton2.className = "addButton";
+		addButton2.innerHTML = "Add";
+		addButton2.id = "addButton2"+ skill.name;
+		if(skill.usesSubcategories){
+			//TODO
+			var row3 = document.createElement("DIV");
+			var div4 = document.createElement("DIV");
+			var span5 = document.createElement("DIV");
+			var span6 = document.createElement("DIV");
+			var row4 = document.createElement("DIV");
+			var div5 = document.createElement("DIV");
+			var span7 = document.createElement("DIV");
+			var span8 = document.createElement("DIV");
+			row3.style.display = "table-row";
+			row4.style.display = "table-row";
+			div4.style.display = "table-cell";
+			div5.style.display = "table-cell";
+			span5.style.display = "table-cell";
+			span6.style.display = "table-cell";
+			span7.style.display = "table-cell";
+			span8.style.display = "table-cell";
+			table.appendChild(row3);
+			table.appendChild(row4);
+			row3.appendChild(div4);
+			row4.appendChild(div5);
+			row3.appendChild(span5);
+			row3.appendChild(span6);
+			row4.appendChild(span7);
+			row4.appendChild(span8);
+			div4.innerHTML = " Add Subcategorie:";
+			div5.innerHTML = " Add Subcategorie:";
+			var input2 = document.createElement("INPUT");
+			span5.appendChild(input2);
+			var addButton3 = document.createElement("DIV");
+			var addButton4 = document.createElement("DIV");
+			span6.appendChild(addButton3);
+			span8.appendChild(addButton4);
+			addButton3.className = "addButton";
+			addButton3.innerHTML = "Add";
+			addButton4.className = "addButton";
+			addButton4.innerHTML = "Add";
+			var sel2 = document.createElement("SELECT");
+			span7.appendChild(sel2);
+			sel2.id = "selectPossSubcategories"+skill.name;
+			var catAvailable = [];
+			for(var i = 0; i < skill.possibleCategories.length;i++){
+				if(!skill.categories.includes(skill.possibleCategories[i])){
+					catAvailable.push(skill.possibleCategories[i]);
+				}
+			}
+			for(var j = 0; j < catAvailable.length;j++){							
+				var x = skill.possibleSubcategories[catAvailable[j]];
+				for(var i = 0; i < x.length;i++){
+					if(!skill.subcategories.includes(x[i])){
+						var opt = document.createElement("option");
+					opt.innerHTML = x[i];
+					opt.id = "option" + skill["name"] + x[i];			
+					sel2.appendChild(opt);
+					}
+				}
+			}
+			addButton3.id = "addButton3"+ skill.name;
+			addButton4.id = "addButton4"+ skill.name;
+			addButton3.addEventListener("click", function(){
+					var name = this.id.substring(10);
+					if(!variables.skills[name].subcategories.includes(input.value) && input.value != ""){
+						variables.skills[name].subcategories.push(input.value);
+						updateCategorizedSkill(name);
+						showCategorizedSkill(name);
+					}
+					variables.totalCosts.skills.update();
+				}
+			);
+			addButton4.addEventListener("click", function(){
+					var name = this.id.substring(10);
+					var sel = document.getElementById("selectPossSubcategories"+name);
+					if(!variables.skills[name].subcategories.includes(sel.value) && sel.value != ""){
+						variables.skills[name].subcategories.push(sel.value);
+						updateCategorizedSkill(name);
+						showCategorizedSkill(name);
+					}
+					variables.totalCosts.skills.update();
+				}
+			);
+		}
 		addButton.addEventListener("click", function(){
 				var name = this.id.substring(9);
-				variables.skills[name].categories.push(input.value);
-				console.log(variables.skills[name].categories);
-				updateCategorizedSkill(name);
+				if(!variables.skills[name].categories.includes(input.value) && input.value != ""){
+					variables.skills[name].categories.push(input.value);
+					if(variables.skills[name].usesSubcategories){
+						for(var i = 0; i < skills[name].possibleSubcategories[input.value].length;i++){
+							var j = variables.skills[name].subcategories.indexOf(skills[name].possibleSubcategories[input.value][i]);
+							if(j != -1){
+								variables.skills[name].subcategories.splice(j,1);
+							}
+						}
+					}
+					updateCategorizedSkill(name);
+					showCategorizedSkill(name);
+					
+				}
+				variables.totalCosts.skills.update();
 			}
 		);
-		//div.insertBefore(div2, addButton);
+		addButton2.addEventListener("click", function(){
+				var name = this.id.substring(10);
+				var sel = document.getElementById("selectPossCategories"+name);
+				if(!variables.skills[name].categories.includes(sel.value) && sel.value != ""){
+					variables.skills[name].categories.push(sel.value);
+					if(variables.skills[name].usesSubcategories){
+						for(var i = 0; i < skills[name].possibleSubcategories[sel.value].length;i++){
+							var j = variables.skills[name].subcategories.indexOf(skills[name].possibleSubcategories[sel.value][i]);
+							if(j != -1){
+								variables.skills[name].subcategories.splice(j,1);
+							}
+						}
+					}
+					updateCategorizedSkill(name);
+					showCategorizedSkill(name);
+				}
+				variables.totalCosts.skills.update();
+			}
+		);
 	}
 }
 function addCategorizedSkill(name){
@@ -295,19 +668,96 @@ function addCategorizedSkill(name){
 	addSkillRow(name);
 }
 function updateCategorizedSkill(name){
-	console.log(document.getElementById(name));
-	console.log(variables.skills[name].description());
-	console.log(variables.skills);
-	document.getElementById(name).innerHTML = variables.skills[name].description();
-}
+	var skill = variables.skills[name];
+	//TODO skill enhancers
+	var id = name;
+	var total = skill.level;
+	var obj = variables;
+	
+	for(var i = 0; i < skill.totalMods.length;i++){
+		for(var j = 0; j < skill.totalMods[i].length; j++){
+			obj = obj[skill.totalMods[i][j]];
+		}
+		total += obj;
+		obj = variables;
+	}
+	
+	document.getElementById(id).innerHTML = skill.description();
+	skill.finalCost = skill.baseCost+ (skill.level*skill.perLevel) + (skill.categories.length*skill.perCategory);
+	for(var i in skill.skillEnhancers){
+		skill.finalCost -= skill.skillEnhancers[i];
+	}
+	if(skill.finalCost <= 0){
+		skill.finalCost = 1;
+	}
+	var roll = "11-";
+	
+	var troll = 0;
+	if(skill.basedOn != "nothing"){
+		var x = variables["characteristics"][skill.basedOn];
+		obj = variables;
+		for(var i = 0; i < skill.totalRMods.length;i++){
+			for(var j = 0; j < skill.totalRMods[i].length; j++){
+				obj = obj[skill.totalRMods[i][j]];
+			}
+			total += obj;
+			obj = variables;
+		}
+		
+		troll+= Math.round(9+x.totalV/5)+total;
+		troll = troll.toString() +"-";
+		roll= ((Math.round((9+x.value/5)+skill.level).toString()) +"-");
+	}
+	if(skill.level == -1){
+		skill.finalCost = 2;
+		roll = "10-";
+		troll = roll;
+	}
+	if(skill.level == -2){
+		skill.finalCost = 1;
+		if(skill.everyman)skill.finalCost = 0;
+		roll = "8-";
+		troll = roll;
+	}
+	if(skill.level == -3){
+		skill.finalCost = 0;
+		if(skill.everyman)skill.finalCost = -1;
+		roll = "nA"
+		troll = roll;
+	}
+	document.getElementById(id+"cost").innerHTML = skill.finalCost;
+	document.getElementById(id+"total").innerHTML = total;
+	document.getElementById(id+"roll").innerHTML = roll;
+	document.getElementById(id+"tRoll").innerHTML = troll;
+	ping(skill["pings"]);
+	//document.getElementById(name).innerHTML = variables.skills[name].description();
+} 
 function descriptionCategorizedSkill(name){
-	console.log("HI");
 	var skill = variables.skills[name];
 	var string = skill.name;
-	if(skill.categories.length > 0){
+	var sub = 0;
+	if(skill.subcategories!= undefined) sub = skill.subcategories.length;
+	if(skill.categories.length > 0 || sub > 0){
 		string +=  " (";
-		for(var i = 0; i < skill.categories.length; i++){
-			string += skill.categories[i];
+		if(skill.categories.length > 0){
+			string += skill.categories[0];
+			for(var i = 1; i < skill.categories.length; i++){
+				string += ", ";
+				string += skill.categories[i];
+			}
+			if(sub > 0){
+				for(var i = 0; i < skill.subcategories.length; i++){
+					string += ", ";
+					string += skill.subcategories[i];
+				}
+			}
+		}
+		else{
+			string += skill.subcategories[0];
+			for(var i = 1; i < skill.subcategories.length; i++){
+				string += ", ";
+				string += skill.subcategories[i];
+			}
 		}
 		string += ")";
 	}
@@ -323,7 +773,7 @@ function descriptionCategorizedSkill(name){
 		}
 		return string +" (Familiarity)";
 	}
-	if(skill.level == -1)return skill.name +" (Proficient)";
+	if(skill.level == -1)return string +" (Proficient)";
 	return string.toString();
 }
 function removeCategorizedSkill(name){}

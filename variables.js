@@ -62,6 +62,99 @@ var variables = {
 				//TODO rounding
 			}
 		},
+		"Constitution":{
+			"name": "Constitution",
+			"abr" : "CON",
+			"base": 10,
+			"cost": 1,
+			"secondary": false,			
+			"value": 10,
+
+			"totalV":8,
+			"totalMods": [
+			],
+			"totalR" : "11-",
+			"totalRMods":[
+			],
+			"pings":[
+				["totalCosts","characteristics"],
+			],
+			"update":function(){
+				updateCharacteristic(this);
+			},
+			"totalCost":function (){
+				return Math.ceil((this.value-this.base)*this.cost); //returns the total CP cost
+			},
+			"roll": function(){
+				if(this.secondary){
+					return ""; //secondary have no roll
+				}
+				return (Math.round((9+this.value/5).toString()) +"-");
+				//TODO rounding
+			}
+		},
+		"Intelligence":{
+			"name": "Intelligence",
+			"abr" : "INT",
+			"base": 10,
+			"cost": 1,
+			"secondary": false,			
+			"value": 10,
+
+			"totalV":8,
+			"totalMods": [
+			],
+			"totalR" : "11-",
+			"totalRMods":[
+			],
+			"pings":[
+				["totalCosts","characteristics"],
+			],
+			"update":function(){
+				updateCharacteristic(this);
+			},
+			"totalCost":function (){
+				return Math.ceil((this.value-this.base)*this.cost); //returns the total CP cost
+			},
+			"roll": function(){
+				if(this.secondary){
+					return ""; //secondary have no roll
+				}
+				return (Math.round((9+this.value/5).toString()) +"-");
+				//TODO rounding
+			}
+		},
+		"Ego":{
+			"name": "Ego",
+			"abr" : "EGO",
+			"base": 10,
+			"cost": 1,
+			"secondary": false,			
+			"value": 10,
+
+			"totalV":8,
+			"totalMods": [
+			],
+			"totalR" : "11-",
+			"totalRMods":[
+			],
+			"pings":[
+				["totalCosts","characteristics"],
+			],
+			"update":function(){
+				updateCharacteristic(this);
+			},
+			"totalCost":function (){
+				return Math.ceil((this.value-this.base)*this.cost); //returns the total CP cost
+			},
+			"roll": function(){
+				if(this.secondary){
+					return ""; //secondary have no roll
+				}
+				return (Math.round((9+this.value/5).toString()) +"-");
+				//TODO rounding
+			}
+		},
 		"Presence":{
 			"name": "Presence",
 			"abr" : "PRE",
