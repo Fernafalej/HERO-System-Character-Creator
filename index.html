@@ -11,6 +11,7 @@
 	
 </head>
 <body>
+	<!--<page size="A4" id="infoPage" class="hidden">-->
 	<page size="A4" id="infoPage" class="hidden">
 		<div id="playerinfo"></div>
 		<div id="characterinfo" ></div>
@@ -137,7 +138,12 @@
 			<div class="title">Movement
 			</div>
 		</div>-->
-		<div id="skills" class="charpart">
+
+	</div>
+	<!-- Overlays -->
+	</page>
+	<page size="A4" class=""> 
+			<div id="skills" class="charpart">
 			<div class="title">Skills</div>
 			<div id="listOfSkills" class="table"></div>
 			<div id="listOfSkillsNoRoll" class="table"></div>
@@ -160,8 +166,8 @@
 			<div class="title">Complications
 			</div>
 		</div>
-	</div>
-	<!-- Overlays -->
+		
+	</page>
 	<div id="SkillsOverlay" class="overlay hidden">
 		<div id="skillsPanel" class="overlayPanel">
 			<div class="panelHolder">
@@ -210,6 +216,5 @@
 			<div id="hideSkillsOverlay" class="closeButton hideable button">Close</div>
 		</div>
 	</div>
-	</page>
-</body>
+	</body>
 </html>

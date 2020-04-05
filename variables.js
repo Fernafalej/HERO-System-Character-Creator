@@ -186,6 +186,316 @@ var variables = {
 				//TODO rounding
 			}
 		},
+		"Offensive Combat Value":{
+			"name": "Offensive Combat Value",
+			"abr" : "OCV",
+			"base": 3,
+			"cost": 5,
+			"secondary": true,			
+			"value": 3,
+
+			"totalV":8,
+			"totalMods": [
+			],
+			"totalR" : "",
+			"totalRMods":[
+			],
+			"pings":[
+				["totalCosts","characteristics"],
+			],
+			"update":function(){
+				updateCharacteristic(this);
+			},
+			"totalCost":function (){
+				return Math.ceil((this.value-this.base)*this.cost); //returns the total CP cost
+			},
+			"roll": function(){
+				if(this.secondary){
+					return ""; //secondary have no roll
+				}
+				return (Math.round((9+this.value/5).toString()) +"-");
+				//TODO rounding
+			}
+		},
+		"Defensive Combat Value":{
+			"name": "Defensive Combat Value",
+			"abr" : "DCV",
+			"base": 3,
+			"cost": 5,
+			"secondary": true,			
+			"value": 3,
+
+			"totalV":8,
+			"totalMods": [
+			],
+			"totalR" : "",
+			"totalRMods":[
+			],
+			"pings":[
+				["totalCosts","characteristics"],
+			],
+			"update":function(){
+				updateCharacteristic(this);
+			},
+			"totalCost":function (){
+				return Math.ceil((this.value-this.base)*this.cost); //returns the total CP cost
+			},
+			"roll": function(){
+				if(this.secondary){
+					return ""; //secondary have no roll
+				}
+				return (Math.round((9+this.value/5).toString()) +"-");
+				//TODO rounding
+			}
+		},
+		"Offensive Mental Combat Value":{
+			"name": "Offensive Mental Combat Value",
+			"abr" : "OMCV",
+			"base": 3,
+			"cost": 3,
+			"secondary": true,			
+			"value": 3,
+
+			"totalV":8,
+			"totalMods": [
+			],
+			"totalR" : "",
+			"totalRMods":[
+			],
+			"pings":[
+				["totalCosts","characteristics"],
+			],
+			"update":function(){
+				updateCharacteristic(this);
+			},
+			"totalCost":function (){
+				return Math.ceil((this.value-this.base)*this.cost); //returns the total CP cost
+			},
+			"roll": function(){
+				if(this.secondary){
+					return ""; //secondary have no roll
+				}
+				return (Math.round((9+this.value/5).toString()) +"-");
+				//TODO rounding
+			}
+		},
+		"Defensive Mental Combat Value":{
+			"name": "Defensive Mental Combat Value",
+			"abr" : "DMCV",
+			"base": 3,
+			"cost": 3,
+			"secondary": true,			
+			"value": 3,
+
+			"totalV":8,
+			"totalMods": [
+			],
+			"totalR" : "",
+			"totalRMods":[
+			],
+			"pings":[
+				["totalCosts","characteristics"],
+			],
+			"update":function(){
+				updateCharacteristic(this);
+			},
+			"totalCost":function (){
+				return Math.ceil((this.value-this.base)*this.cost); //returns the total CP cost
+			},
+			"roll": function(){
+				if(this.secondary){
+					return ""; //secondary have no roll
+				}
+				return (Math.round((9+this.value/5).toString()) +"-");
+				//TODO rounding
+			}
+		},
+		"Speed":{
+			"name": "Speed",
+			"abr" : "SPD",
+			"base": 2,
+			"cost": 10,
+			"secondary": true,			
+			"value": 2,
+
+			"totalV":8,
+			"totalMods": [
+			],
+			"totalR" : "",
+			"totalRMods":[
+			],
+			"pings":[
+				["totalCosts","characteristics"],
+			],
+			"update":function(){
+				updateCharacteristic(this);
+			},
+			"totalCost":function (){
+				return Math.ceil((this.value-this.base)*this.cost); //returns the total CP cost
+			},
+			"roll": function(){
+				if(this.secondary){
+					return ""; //secondary have no roll
+				}
+				return (Math.round((9+this.value/5).toString()) +"-");
+				//TODO rounding
+			}
+		},
+		"Energy Defense":{
+			"name": "Energy Defense",
+			"abr" : "ED",
+			"base": 2,
+			"cost": 1,
+			"secondary": true,			
+			"value": 2,
+
+			"totalV":8,
+			"totalMods": [
+			],
+			"totalR" : "",
+			"totalRMods":[
+			],
+			"pings":[
+				["totalCosts","characteristics"],
+			],
+			"update":function(){
+				updateCharacteristic(this);
+			},
+			"totalCost":function (){
+				return Math.ceil((this.value-this.base)*this.cost); //returns the total CP cost
+			},
+			"roll": function(){
+				if(this.secondary){
+					return ""; //secondary have no roll
+				}
+				return (Math.round((9+this.value/5).toString()) +"-");
+				//TODO rounding
+			}
+		},
+		"Recovery":{
+			"name": "Recovery",
+			"abr" : "REC",
+			"base": 4,
+			"cost": 1,
+			"secondary": true,			
+			"value": 4,
+
+			"totalV":8,
+			"totalMods": [
+			],
+			"totalR" : "",
+			"totalRMods":[
+			],
+			"pings":[
+				["totalCosts","characteristics"],
+			],
+			"update":function(){
+				updateCharacteristic(this);
+			},
+			"totalCost":function (){
+				return Math.ceil((this.value-this.base)*this.cost); //returns the total CP cost
+			},
+			"roll": function(){
+				if(this.secondary){
+					return ""; //secondary have no roll
+				}
+				return (Math.round((9+this.value/5).toString()) +"-");
+				//TODO rounding
+			}
+		},
+		"Endurance":{
+			"name": "Endurance",
+			"abr" : "END",
+			"base": 20,
+			"cost": 0.2,
+			"secondary": true,			
+			"value": 20,
+
+			"totalV":8,
+			"totalMods": [
+			],
+			"totalR" : "",
+			"totalRMods":[
+			],
+			"pings":[
+				["totalCosts","characteristics"],
+			],
+			"update":function(){
+				updateCharacteristic(this);
+			},
+			"totalCost":function (){
+				return Math.ceil((this.value-this.base)*this.cost); //returns the total CP cost
+			},
+			"roll": function(){
+				if(this.secondary){
+					return ""; //secondary have no roll
+				}
+				return (Math.round((9+this.value/5).toString()) +"-");
+				//TODO rounding
+			}
+		},
+		"Body":{
+			"name": "Body",
+			"abr" : "BODY",
+			"base": 10,
+			"cost": 1,
+			"secondary": true,			
+			"value": 10,
+
+			"totalV":8,
+			"totalMods": [
+			],
+			"totalR" : "",
+			"totalRMods":[
+			],
+			"pings":[
+				["totalCosts","characteristics"],
+			],
+			"update":function(){
+				updateCharacteristic(this);
+			},
+			"totalCost":function (){
+				return Math.ceil((this.value-this.base)*this.cost); //returns the total CP cost
+			},
+			"roll": function(){
+				if(this.secondary){
+					return ""; //secondary have no roll
+				}
+				return (Math.round((9+this.value/5).toString()) +"-");
+				//TODO rounding
+			}
+		},
+		"Stun":{
+			"name": "Stun",
+			"abr" : "STUN",
+			"base": 20,
+			"cost": 0.5,
+			"secondary": true,			
+			"value": 20,
+
+			"totalV":8,
+			"totalMods": [
+			],
+			"totalR" : "",
+			"totalRMods":[
+			],
+			"pings":[
+				["totalCosts","characteristics"],
+			],
+			"update":function(){
+				updateCharacteristic(this);
+			},
+			"totalCost":function (){
+				return Math.ceil((this.value-this.base)*this.cost); //returns the total CP cost
+			},
+			"roll": function(){
+				if(this.secondary){
+					return ""; //secondary have no roll
+				}
+				return (Math.round((9+this.value/5).toString()) +"-");
+				//TODO rounding
+			}
+		},
 	},
 	"skills":{
 		
@@ -275,16 +585,18 @@ function updateCharacteristic(ch){
 	ch.totalV = temp;
 	
 	//Update totalR
-	temp = Math.round(9+ch.totalV/5);
-	obj = variables;
-	for(var i = 0; i < ch.totalRMods.length;i++){
-		for(var j = 0; j <= v.length; j++){
-			obj = obj[ch.totalRMods[i][j]];
-		}
-		temp += obj;
+	if(!ch.secondary){
+		temp = Math.round(9+ch.totalV/5);
 		obj = variables;
+		for(var i = 0; i < ch.totalRMods.length;i++){
+			for(var j = 0; j <= v.length; j++){
+				obj = obj[ch.totalRMods[i][j]];
+			}
+			temp += obj;
+			obj = variables;
+		}
+		ch.totalR = temp.toString() +"-";
 	}
-	ch.totalR = temp.toString() +"-";
 	redrawChar(ch);
 	ping(ch["pings"]);
 }

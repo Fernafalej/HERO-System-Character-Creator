@@ -98,10 +98,10 @@ var skills = {
 			return this.finalCost;
 		}		
 	},
-	/*"Acrobatics2": {
-		"name":"Acrobatics2",
-		"type": "Interaction",
-		"basedOn": "Presence",
+	"Analyze": {
+		"name":"Analyze",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
 		"baseCost":3,
 		"perLevel":2,
 		"everyman":false,
@@ -124,7 +124,15 @@ var skills = {
 		},
 		"remove":function(){
 			
-
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
 		},
 		"update":function(){
 			updateStandardSkill(this.name);
@@ -138,7 +146,7 @@ var skills = {
 			}
 			return this.finalCost;
 		}		
-	},*/
+	},
 	"Animal Handler":{
 		"name":"Animal Handler",
 		"type": "Interaction",
@@ -197,6 +205,2275 @@ var skills = {
 			}
 			return this.finalCost;
 		}
+	},
+	//Autofire Skills
+	"Breakfall": {
+		"name":"Breakfall",
+		"type": "Agility",
+		"basedOn": "Dexterity",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Bribery": {
+		"name":"Bribery",
+		"type": "Interaction",
+		"basedOn": "Presence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Bugging": {
+		"name":"Bugging",
+		"type": "Interaction",
+		"basedOn": "Presence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Bureaucratics": {
+		"name":"Bureaucratics",
+		"type": "Interaction",
+		"basedOn": "Presence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Charm": {
+		"name":"Charm",
+		"type": "Interaction",
+		"basedOn": "Presence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Climbing": {
+		"name":"Climbing",
+		"type": "Agility",
+		"basedOn": "Dexterity",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Combat Driving": {
+		"name":"Combat Driving",
+		"type": "Agility",
+		"basedOn": "Dexterity",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Combat Piloting": {
+		"name":"Combat Piloting",
+		"type": "Agility",
+		"basedOn": "Dexterity",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	//Combat Skill Levels
+	"Computer Programming": {
+		"name":"Computer Programming",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Concealment": {
+		"name":"Concealment",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Contortionist": {
+		"name":"Contortionist",
+		"type": "Agility",
+		"basedOn": "Dexterity",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Conversation": {
+		"name":"Conversation",
+		"type": "Interaction",
+		"basedOn": "Presence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	//Cramming
+	"Criminology": {
+		"name":"Criminology",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Cryptography": {
+		"name":"Cryptography",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Deduction": {
+		"name":"Deduction",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},"Acrobatics": {
+		"name":"Acrobatics",
+		"type": "Agility",
+		"basedOn": "Dexterity",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},"Acrobatics": {
+		"name":"Acrobatics",
+		"type": "Agility",
+		"basedOn": "Dexterity",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	//Defense Maneuver
+	"Demolitions": {
+		"name":"Demolitions",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Disguise": {
+		"name":"Disguise",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Electronics": {
+		"name":"Electronics",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Fast Draw": {
+		"name":"Fast Draw",
+		"type": "Agility",
+		"basedOn": "Dexterity",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Forensic Medicine": {
+		"name":"Forensic Medicine",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	//Forgery
+	//Gambling
+	"High Society": {
+		"name":"High Society",
+		"type": "Interaction",
+		"basedOn": "Presence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Interrogation": {
+		"name":"Interrogation",
+		"type": "Interaction",
+		"basedOn": "Presence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Inventor": {
+		"name":"Inventor",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	//Knowledge Skill
+	//Language
+	"Lipreading": {
+		"name":"Lipreading",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Lockpicking": {
+		"name":"Lockpicking",
+		"type": "Agility",
+		"basedOn": "Dexterity",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	//Martial Arts
+	"Mechanics": {
+		"name":"Mechanics",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Mimikry": {
+		"name":"Mimikry",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	//Navigation
+	"Oratory": {
+		"name":"Oratory",
+		"type": "Interaction",
+		"basedOn": "Presence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Paramedics": {
+		"name":"Paramedics",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	// Penalty Skill Levels
+	"Persuasion": {
+		"name":"Persuasion",
+		"type": "Interaction",
+		"basedOn": "Presence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	//Power
+	//Professional Skill
+	//Rapid Attack
+	"Riding": {
+		"name":"Riding",
+		"type": "Agility",
+		"basedOn": "Dexterity",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	//Science Skill
+	"Security Systems": {
+		"name":"Security Systems",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Shadowing": {
+		"name":"Shadowing",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	//Skill Levels
+	"Sleight Of Hand": {
+		"name": "Sleight of Hand",
+		"type": "Agility",
+		"basedOn": "Dexterity",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},"Acrobatics": {
+		"name":"Acrobatics",
+		"type": "Agility",
+		"basedOn": "Dexterity",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Stealth": {
+		"name":"Stealth",
+		"type": "Agility",
+		"basedOn": "Dexterity",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Streetwise": {
+		"name":"Streetwise",
+		"type": "Interaction",
+		"basedOn": "Presence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Survival": {
+		"name":"Survival",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Systems Operation": {
+		"name":"Systems Operation",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Tactics": {
+		"name":"Tactics",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Teamwork": {
+		"name":"Teamwork",
+		"type": "Agility",
+		"basedOn": "Dexterity",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Tracking": {
+		"name":"Trackin",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	"Trading": {
+		"name":"Trading",
+		"type": "Interaction",
+		"basedOn": "Presence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
+	},
+	//Transport Familiarity
+	//Two-Weapon Fighting
+	"Ventriloquism": {
+		"name":"Ventriloquism",
+		"type": "Intellect",
+		"basedOn": "Intelligence",
+		"baseCost":3,
+		"perLevel":2,
+		"everyman":false,
+		"min": -3,
+		"max": -1,
+		
+		"level":0,
+		"total":0,
+		"finalCost":3,
+		"pings":[],
+		"totalMods":[],
+		"totalRMods":[],
+		"skillEnhancers":[],
+		"skillLevels":[],
+		"show":function(){
+			showStandardSkill(this.name)
+		},
+		"add":function(){
+			addRollSkill(this.name)
+		},
+		"remove":function(){
+			
+			/*
+			//TODO if everyman get 1 CP
+			removeSPTRow("skills",this.name);
+			if(this.basedOn != "nothing"){
+				variables["characteristics"][this.basedOn]["pings"].pop(["skills",this.name]);//TODO
+			}
+			delete variables["skills"][this.name]
+			//TODO update CP
+			*/
+		},
+		"update":function(){
+			updateStandardSkill(this.name);
+		},
+		"description":function(){
+			return descriptionStandardSkill(this.name);
+		},
+		"totalCost":function(){
+			if(this.everyman && this.level==0){
+				return 0;
+			}
+			return this.finalCost;
+		}		
 	},
 	"Weapon Familiarity":{
 		
@@ -313,7 +2590,7 @@ var skills = {
 			return this.finalCost;
 		}
 	},
-	
+	//Weaponsmith
 }
 
 function showStandardSkill(name){

@@ -10,3 +10,28 @@ TODO resort skills (drag and drop?)
 TODO if skills empty redraw empty
 
 TODO skillenhancers and talents as powers?
+TODO Martial Arts
+
+
+Powers:
+Name
+Base Cost
+Active Cost
+Real Cost
+Endurance Cost
+DC
+Percievability
+Duration
+Target
+Range
+
+Power Categories
+Power Frameworks
+Limitations Adders Advantages
+Special/Standard
+
+
+
+
+Compound Power
+Minimum Cost (Super Heroic)
