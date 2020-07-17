@@ -12,13 +12,16 @@
 </head>
 <body>
 	<!--<page size="A4" id="infoPage" class="hidden">-->
+	<div id ="settingsbar"class="noprint">
+		HI
+	</div>
 	<page size="A4" id="infoPage" class="hidden">
 		<div id="playerinfo"></div>
 		<div id="characterinfo" ></div>
 		<div id="campaigninfo" ></div>
 	</page>
-	<page size="A4">
-	<div id="container">
+	<page size="A4" class="">
+	<div class="container">
 	<!-- <div id="maingrid"> -->
 		
 		<div id="characteristics" class="charpart">
@@ -110,7 +113,7 @@
 				</div>
 			</div>
 		</div>
-		<!--<div id="vitals" class="charpart">
+		<div id="vitals" class="charpart">
 			<div class="title">Vital Information
 			</div>
 		</div>
@@ -137,39 +140,105 @@
 		<div id="movement" class="charpart">
 			<div class="title">Movement
 			</div>
-		</div>-->
+		</div>
 
 	</div>
 	<!-- Overlays -->
 	</page>
 	<page size="A4" class=""> 
-			<div id="skills" class="charpart">
-			<div class="title">Skills</div>
-			<div id="listOfSkills" class="table"></div>
-			<div id="listOfSkillsNoRoll" class="table"></div>
-			<div id="skillsCost" class="cost">
-			Total Cost : 0
+		<div class="container">
+			<div id="skills" class="charpart skillcharpart">
+				<div class="title">Skills</div>
+				<div id="listOfSkills" class="table"></div>
+				<div id="listOfSkillsNoRoll" class="table"></div>
+				<div id="skillsCost" class="cost">
+				Total Cost : 0
+				</div>
+				<div id="addSkillsdiv" class="center">
+					<div id="showSkillsOverlay" class="button showable noprint">Change Skills</div>
+				</div>
 			</div>
-			<div id="addSkillsdiv" class="center">
-				<div id="showSkillsOverlay" class="button showable noprint">Change Skills</div>
+			<div id="powers" class="charpart powercharpart">
+			<div class="title">Powers
+				</div>
+				<div id="listOfPowers"></div>
+				<div id="addPowerdiv" class="center">
+					<div id="showPowersOverlay" class="button showable noprint">Add Power</div>
+				</div>
+			</div>
+			<div id="complications" class="charpart">
+				<div class="title">Complications
+				</div>
 			</div>
 		</div>
-		<div id="powers" class="charpart">
-		<div class="title">Powers
-			</div>
-			<div id="listOfPowers"></div>
-			<div id="addPowerdiv" class="center">
-			<div id="addPowerButton" class="button noprint">Add Power</div>
-			</div>
-		</div>
-		<div id="complications" class="charpart">
-			<div class="title">Complications
-			</div>
-		</div>
-		
 	</page>
 	<div id="SkillsOverlay" class="overlay hidden">
 		<div id="skillsPanel" class="overlayPanel">
+			<div class="panelHolder">
+				<div class="title">Add Skill or Category</div>
+				<div class="panelTable">
+					<div class="panelSegment">
+						<div class="panelCell">Agility Skills</div>
+						<div class="panelCell"><select id ="selectskillsAgility"></select></div>
+							<div class="panelCell">
+								<div id="AgilitySelected" class="inline-flex"></div>
+							</div>
+					</div>
+					<div class="panelSegment">
+							<div class="panelCell">Intellect Skills</div>
+							<div class="panelCell"><select id ="selectskillsIntellect"></select></div>
+							<div class="panelCell">
+								<div id="IntellectSelected" class="inline-flex"></div>
+							</div>
+					</div>
+					<div class="panelSegment">
+							<div class="panelCell">Interaction Skills</div>
+							<div class="panelCell"><select id ="selectskillsInteraction"></select></div>
+							<div class="panelCell">
+								<div id="InteractionSelected" class="inline-flex"></div>
+							</div>
+					</div>
+					<div class="panelSegment">
+						<div class="panelCell">Background Skills</div>
+						<div class="panelCell"><select id ="selectskillsBackground"></select></div>
+							<div class="panelCell">
+								<div id="BackgroundSelected" class="inline-flex"></div>
+							</div>
+					</div>
+					<div class="panelSegment">
+						<div class="panelCell">Combat Skills</div>
+						<div class="panelCell"><select id ="selectskillsCombat"></select></div>
+							<div class="panelCell">
+								<div id="CombatSelected" class="inline-flex"></div>
+							</div>
+					</div>
+					<div class="panelSegment">
+						<div class="panelCell">New Skill!</div>
+						<div class="panelCell"><input id ="selectskillsNewSkill"></div>
+							<div class="panelCell">
+								<div id="NewSkillSelected" class="inline-flex"></div>
+						</div>
+					</div>
+					<div class="panelSegment">Skill Enhancers</div>
+					<div class="panelSegment">Skill Levels</div>
+					<div class="panelSegment">Languages</div>
+					<div class="panelSegment">
+						<div class="panelCell">Delete Skills</div>
+						<div class="panelCell"><select id ="selectskillsDelete"></select></div>
+							<div class="panelCell">
+								<div id="DeletSelected" class="inline-flex">
+									<div id ="Delete" class="addButton" onclick="deleteSkill()">
+										Delete
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+			<div id="hideSkillsOverlay" class="closeButton hideable button">Close</div>
+		</div>
+	</div>
+	<div id="PowersOverlay" class="overlay hidden">
+		<div id="powersPanel" class="overlayPanel">
 			<div class="panelHolder">
 				<div class="title">Add Skill or Category</div>
 				<div class="panelTable">

@@ -1286,8 +1286,8 @@ var skills = {
 			return this.finalCost;
 		}		
 	},
-	//Forgery
-	//Gambling
+	//Forgery TODO
+	//Gambling TODO
 	"High Society": {
 		"name":"High Society",
 		"type": "Interaction",
@@ -1936,7 +1936,7 @@ var skills = {
 	},
 	//Skill Levels
 	"Sleight Of Hand": {
-		"name": "Sleight of Hand",
+		"name": "Sleight Of Hand",
 		"type": "Agility",
 		"basedOn": "Dexterity",
 		"baseCost":3,
@@ -1983,7 +1983,7 @@ var skills = {
 			}
 			return this.finalCost;
 		}		
-	},"Acrobatics": {
+	},/*"Acrobatics": {
 		"name":"Acrobatics",
 		"type": "Agility",
 		"basedOn": "Dexterity",
@@ -2009,7 +2009,7 @@ var skills = {
 		},
 		"remove":function(){
 			
-			/*
+			
 			//TODO if everyman get 1 CP
 			removeSPTRow("skills",this.name);
 			if(this.basedOn != "nothing"){
@@ -2017,7 +2017,7 @@ var skills = {
 			}
 			delete variables["skills"][this.name]
 			//TODO update CP
-			*/
+			
 		},
 		"update":function(){
 			updateStandardSkill(this.name);
@@ -2031,7 +2031,7 @@ var skills = {
 			}
 			return this.finalCost;
 		}		
-	},
+	},*/
 	"Stealth": {
 		"name":"Stealth",
 		"type": "Agility",
@@ -2611,18 +2611,21 @@ function showStandardSkill(name){
 	em.appendChild(emc);
 	addButton.addEventListener("click", function(){
 		var name = this.id.substring(9);
-		var opt = document.getElementById("option"+ skills[name].type+ name);
+		var opt = document.getElementById("option"+ skills[name].type + name);
 		if(opt == null){
 			return;
 		}
 		skills[name].add();
 		var em = document.getElementById("emc" + name);
 		variables["skills"][name].everyman = em.checked;
+		if(variables["skills"][name].everyman){
+			variables["skills"][name].level = -2;
+		}
 		variables["skills"][name].update();
-		
-		
 		var sel = opt.parentNode;
 		sel.removeChild(opt); //Removes the choosen Option
+		document.getElementById("selectskillsDelete").appendChild(opt);
+		opt.id = "selectDelete"+name;
 		if(sel.childNodes.length == 1){
 			
 			//sel.style.visibility = "hidden"; //if empty don't display me
@@ -2706,6 +2709,7 @@ function updateStandardSkill(name){
 		roll = "nA"
 		troll = roll;
 	}
+	document.getElementById("input"+id).value = skill.level;
 	document.getElementById(id+"cost").innerHTML = skill.finalCost;
 	document.getElementById(id+"total").innerHTML = total;
 	document.getElementById(id+"roll").innerHTML = roll;
@@ -2735,7 +2739,7 @@ function removeStandardSkill(n){
 function showCategorizedSkill(name){
 	var skill = skills[name];
 	var div = document.getElementById(skill.type+"Selected");
-	console.log(skill.type);
+	//console.log(skill.type);
 	div.innerHTML = "";
 	var addButton = document.createElement("DIV");
 	addButton.className = "addButton";
@@ -2761,6 +2765,10 @@ function showCategorizedSkill(name){
 				var opt = document.getElementById("option"+ skills[name].type+ name);
 				var sel = opt.parentNode;
 				skills[sel.value].show();
+				var opt2 = document.createElement("OPTION");
+				document.getElementById("selectskillsDelete").appendChild(opt2);
+				opt2.id = "selectDelete"+name;
+				opt2.innerHTML = name;
 			}
 		);
 	}
@@ -3054,3 +3062,41 @@ function descriptionCategorizedSkill(name){
 	return string.toString();
 }
 function removeCategorizedSkill(name){}
+
+function deleteSkill(){
+	
+	//TODO!!!
+	var s = document.getElementById("selectskillsDelete").value;
+	if(s== ""){
+		return;
+	}
+	var v = variables.skills[s];
+	var t = v.type;
+	var opt = document.getElementById("selectDelete"+s);
+	if(v.usesSubcategories == undefined){
+		opt.id = "option"+v.type+s;
+		opt.parentNode.removeChild(opt);
+		document.getElementById("selectskills"+v.type).appendChild(opt);
+		console.log(skills[s]);
+	}else{
+		console.log(v.categories);
+		while(v.categories.length>0){
+			v.possibleCategories.push(v.categories.pop());
+		}
+		console.log(v.categories);
+		if(v.usesSubcategories == true){
+			while(v.subcategories.length>0){
+				v.subcategories.pop();
+			}
+		}
+	}
+	showStandardSkill(s);
+	document.getElementById(s).parentNode.parentNode.removeChild(document.getElementById("row"+s));
+	
+	
+	//TODO remove skillRow
+	//TODO add skill options
+	//TODO remove delete option
+	delete variables.skills[s];
+	variables.totalCosts.skills.update();
+}

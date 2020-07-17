@@ -33,6 +33,8 @@ page[size="A4"] {
   margin-bottom: 0.5cm;
   padding: 1cm;
   //box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+  border: 2px solid black;
+  page-break-after:always;
 }
 @media print{
 	body {
@@ -40,9 +42,12 @@ page[size="A4"] {
 		box-shadow: 0px;
 	}
 	page[size="A4"] {
-		margin: 0;
+		margin: 0cm;
 		box-shadow: 0px;
 		padding:0;
+		//width: min-width;
+		//height: min-height;
+		//border: 0px solid black;
 	}
 	a[href]:after {
 		content: none !important;
@@ -72,7 +77,10 @@ page[size="A4"] {
 	grid-column: 8 / 10;
 	grid-row:1 / 2;
 }*/
-#container{
+#settingsbar{
+	height:20px; 
+}
+.container{
 	display:flex;
 	flex-wrap:wrap;
 	flex-direction:row;
@@ -95,6 +103,12 @@ page[size="A4"] {
 	text-align:center;
 	padding: 5px;
 	border-bottom: 2px solid black;
+}
+.skillcharpart{
+	width:37%
+}
+.powercharpart{
+	width:57%
 }
 .tableHead {
 	text-align:center;
@@ -178,9 +192,11 @@ page[size="A4"] {
 .button{
 	border: 1px solid darkgrey;
 	padding:2px;
-	margin: 2px 20px 2px 20px;
+	margin: 2px auto;
 	cursor: pointer;
 	text-align:center;
+	width: fit-content;
+	width: -moz-fit-content;
 }
 .button:hover{
 	background-color:#f0f0f0;
@@ -241,6 +257,7 @@ page[size="A4"] {
 	border-right: 1px solid black;
 	border-bottom:1px solid black;
 	border-radius: 5px;
+	//padding: 10px;
 }
 .panelHolder .title{
 	font-variant:small-caps;

@@ -8,7 +8,7 @@ window.onload = function (){
 	//generateCharacteristics();
 	//generateStats();
 	generateEXP();
-	//skills.Acrobatics.add();
+	skills.Acrobatics.add();
 	generateAddSkillSelects();
 	redrawSkills();	
 }
@@ -149,9 +149,9 @@ function addSkillRow(i){
 	row.appendChild(name);
 	var level = document.createElement("DIV");
 	level.className = "cell";
-	var levelInput = document.createElement("INPUT");
-	levelInput.value = variables.skills[i].level;
+	var levelInput = document.createElement("INPUT");	
 	levelInput.type="number";
+	levelInput.value = variables.skills[i].level;
 	levelInput.min = s.min;
 	if(s.max > 0)levelInput.max = s.max;
 	levelInput.id = "input"+i;
@@ -222,6 +222,16 @@ function generateAddSkillSelects(){
 			}
 		)
 	}
+	for(let s in variables["skills"]){
+		generateDeleteSkillOptions(s);
+	}
+}
+function generateDeleteSkillOptions(skill){
+	var opt = document.createElement("option");
+	opt.innerHTML = variables.skills[skill]["name"];
+	opt.id = "selectDelete" + variables.skills[skill]["name"];
+	var sel = document.getElementById("selectskillsDelete");
+	sel.appendChild(opt);
 }
 
 //Display

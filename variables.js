@@ -498,10 +498,9 @@ var variables = {
 		},
 	},
 	"skills":{
-		
 	},
 	"totalCosts":{
-		"characteristics":{
+		"characteristics":{  
 			"name":"characteristics",
 			"value" : 0,
 			

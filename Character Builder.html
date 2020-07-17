@@ -1,0 +1,271 @@
+
+<!-- saved from url=(0079)file:///C:/Users/Dennis/Dropbox/PnP/Champions/CharacterBuilder%20WIP/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>Character Builder</title>
+	<link rel="stylesheet" href="./Character Builder_files/style.css" title="Basic">
+	<!--<script src = "classes.js"></script>-->
+	<script src="./Character Builder_files/variables.js.Download"></script>
+	<script src="./Character Builder_files/skills.js.Download"></script>
+	<script src="./Character Builder_files/script.js.Download"></script>
+	<link rel="stylesheet" href="./Character Builder_files/style.css" title="Basic">
+	
+</head>
+<body>
+	<!--<page size="A4" id="infoPage" class="hidden">-->
+	<div id="settingsbar" class="noprint">
+		HI
+	</div>
+	<page size="A4" id="infoPage" class="hidden" style="display: none;">
+		<div id="playerinfo"></div>
+		<div id="characterinfo"></div>
+		<div id="campaigninfo"></div>
+	</page>
+	<page size="A4">
+	<div class="container">
+	<!-- <div id="maingrid"> -->
+		
+		<div id="characteristics" class="charpart">
+			<div class="title">Characteristics
+			</div>
+			<div id="charTable" class="table">
+				<div id="charTableHead" class="tableHead">
+					<div class="cell charTableHeadCell">Char</div>
+					<div class="cell charTableHeadCell">Base</div><!-- better Name -->
+					<div class="cell charTableHeadCell">Total</div>
+					<div class="cell charTableHeadCell">CP</div>
+					<div class="cell charTableHeadCell">Roll</div>
+					<div class="cell charTableHeadCell">Total Roll</div>
+				</div>
+			<div id="Strength" class="stat row"><div class="cell">STR</div><div class="cell"><input type="number" min="0" id="inputStrength"></div><div class="cell" id="StrengthTotal">10</div><div class="cell" id="StrengthCP">0</div><div class="cell" id="StrengthRoll">11-</div><div class="cell" id="StrengthTotalRoll">11-</div></div><div id="Dexterity" class="stat row"><div class="cell">DEX</div><div class="cell"><input type="number" min="0" id="inputDexterity"></div><div class="cell" id="DexterityTotal">10</div><div class="cell" id="DexterityCP">0</div><div class="cell" id="DexterityRoll">11-</div><div class="cell" id="DexterityTotalRoll">11-</div></div><div id="Constitution" class="stat row"><div class="cell">CON</div><div class="cell"><input type="number" min="0" id="inputConstitution"></div><div class="cell" id="ConstitutionTotal">10</div><div class="cell" id="ConstitutionCP">0</div><div class="cell" id="ConstitutionRoll">11-</div><div class="cell" id="ConstitutionTotalRoll">11-</div></div><div id="Intelligence" class="stat row"><div class="cell">INT</div><div class="cell"><input type="number" min="0" id="inputIntelligence"></div><div class="cell" id="IntelligenceTotal">10</div><div class="cell" id="IntelligenceCP">0</div><div class="cell" id="IntelligenceRoll">11-</div><div class="cell" id="IntelligenceTotalRoll">11-</div></div><div id="Ego" class="stat row"><div class="cell">EGO</div><div class="cell"><input type="number" min="0" id="inputEgo"></div><div class="cell" id="EgoTotal">10</div><div class="cell" id="EgoCP">0</div><div class="cell" id="EgoRoll">11-</div><div class="cell" id="EgoTotalRoll">11-</div></div><div id="Presence" class="stat row"><div class="cell">PRE</div><div class="cell"><input type="number" min="0" id="inputPresence"></div><div class="cell" id="PresenceTotal">10</div><div class="cell" id="PresenceCP">0</div><div class="cell" id="PresenceRoll">11-</div><div class="cell" id="PresenceTotalRoll">11-</div></div><div id="Offensive Combat Value" class="stat row"><div class="cell">OCV</div><div class="cell"><input type="number" min="0" id="inputOffensive Combat Value"></div><div class="cell" id="Offensive Combat ValueTotal">3</div><div class="cell" id="Offensive Combat ValueCP">0</div><div class="cell" id="Offensive Combat ValueRoll"></div><div class="cell" id="Offensive Combat ValueTotalRoll"></div></div><div id="Defensive Combat Value" class="stat row"><div class="cell">DCV</div><div class="cell"><input type="number" min="0" id="inputDefensive Combat Value"></div><div class="cell" id="Defensive Combat ValueTotal">3</div><div class="cell" id="Defensive Combat ValueCP">0</div><div class="cell" id="Defensive Combat ValueRoll"></div><div class="cell" id="Defensive Combat ValueTotalRoll"></div></div><div id="Offensive Mental Combat Value" class="stat row"><div class="cell">OMCV</div><div class="cell"><input type="number" min="0" id="inputOffensive Mental Combat Value"></div><div class="cell" id="Offensive Mental Combat ValueTotal">3</div><div class="cell" id="Offensive Mental Combat ValueCP">0</div><div class="cell" id="Offensive Mental Combat ValueRoll"></div><div class="cell" id="Offensive Mental Combat ValueTotalRoll"></div></div><div id="Defensive Mental Combat Value" class="stat row"><div class="cell">DMCV</div><div class="cell"><input type="number" min="0" id="inputDefensive Mental Combat Value"></div><div class="cell" id="Defensive Mental Combat ValueTotal">3</div><div class="cell" id="Defensive Mental Combat ValueCP">0</div><div class="cell" id="Defensive Mental Combat ValueRoll"></div><div class="cell" id="Defensive Mental Combat ValueTotalRoll"></div></div><div id="Speed" class="stat row"><div class="cell">SPD</div><div class="cell"><input type="number" min="0" id="inputSpeed"></div><div class="cell" id="SpeedTotal">2</div><div class="cell" id="SpeedCP">0</div><div class="cell" id="SpeedRoll"></div><div class="cell" id="SpeedTotalRoll"></div></div><div id="Energy Defense" class="stat row"><div class="cell">ED</div><div class="cell"><input type="number" min="0" id="inputEnergy Defense"></div><div class="cell" id="Energy DefenseTotal">2</div><div class="cell" id="Energy DefenseCP">0</div><div class="cell" id="Energy DefenseRoll"></div><div class="cell" id="Energy DefenseTotalRoll"></div></div><div id="Recovery" class="stat row"><div class="cell">REC</div><div class="cell"><input type="number" min="0" id="inputRecovery"></div><div class="cell" id="RecoveryTotal">4</div><div class="cell" id="RecoveryCP">0</div><div class="cell" id="RecoveryRoll"></div><div class="cell" id="RecoveryTotalRoll"></div></div><div id="Endurance" class="stat row"><div class="cell">END</div><div class="cell"><input type="number" min="0" id="inputEndurance"></div><div class="cell" id="EnduranceTotal">20</div><div class="cell" id="EnduranceCP">0</div><div class="cell" id="EnduranceRoll"></div><div class="cell" id="EnduranceTotalRoll"></div></div><div id="Body" class="stat row"><div class="cell">BODY</div><div class="cell"><input type="number" min="0" id="inputBody"></div><div class="cell" id="BodyTotal">10</div><div class="cell" id="BodyCP">0</div><div class="cell" id="BodyRoll"></div><div class="cell" id="BodyTotalRoll"></div></div><div id="Stun" class="stat row"><div class="cell">STUN</div><div class="cell"><input type="number" min="0" id="inputStun"></div><div class="cell" id="StunTotal">20</div><div class="cell" id="StunCP">0</div><div class="cell" id="StunRoll"></div><div class="cell" id="StunTotalRoll"></div></div></div>
+			<div id="characteristicsCost" class="cost">Total Cost : 0</div>
+		</div>
+		<div id="status" class="charpart">
+			<div class="title">Current Status
+			</div>
+			<div class="table center">
+				<div class="row firstrow">
+					<div class="cell"></div>
+					<div class="cell">Max</div>
+					<div class="cell">Current</div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">END</div>
+					<div class="cell" id="currentStatusEnd"></div>
+					<div class="cell"></div>
+				</div>
+				<div class="row">
+					<div class="cell  firstcell">BODY</div>
+					<div class="cell" id="currentStatusBody"></div>
+					<div class="cell"></div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">STUN</div>
+					<div class="cell" id="currentStatusStun"></div>
+					<div class="cell"></div>
+				</div>
+			</div>
+		</div>
+		<div id="experience" class="charpart">
+			<div class="title">Experience Points
+			</div>
+			<div class="table center">
+				<div class="row">
+					<div class="cell firstcell">Total EXP</div>
+					<div class="cell" id="totalExp">150</div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">Starting EXP</div>
+					<div class="cell"><input id="startEXP" type="number" min="0"></div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">EXP Earned</div>
+					<div class="cell"><input id="expEarned" type="number" min="0"></div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">EXP Spent</div>
+					<div class="cell" id="totalExpSpent">0</div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">EXP Unspent</div>
+					<div class="cell" id="unspentExp">150</div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">Total Comp</div>
+					<div class="cell" id="totalComp">50</div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">Starting Comp</div>
+					<div class="cell"><input id="startComp" type="number" min="0"></div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">Earned Comp</div>
+					<div class="cell"><input id="compEarned" type="number" min="0"></div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">Comp to EXP</div>
+					<div class="cell" id="cte">0</div>
+				</div>
+				<div class="row">
+					<div class="cell firstcell">Unspent Comp</div>
+					<div class="cell" id="unspentComp">50</div>
+				</div>
+			</div>
+		</div>
+		<div id="vitals" class="charpart">
+			<div class="title">Vital Information
+			</div>
+		</div>
+		<div id="hitlocations" class="charpart">
+			<div class="title">Hit Location Chart
+			</div>
+		</div>
+		<div id="attacks&amp;maneuvers" class="charpart">
+			<div class="title">Attacks &amp; Maneuvers
+			</div>
+		</div>
+		<div id="defenses" class="charpart">
+			<div class="title">Defenses
+			</div>
+		</div>
+		<div id="combatmodifiers" class="charpart">
+			<div class="title">Combat Modifiers
+			</div>
+		</div>
+		<div id="senses" class="charpart">
+			<div class="title">Senses
+			</div>
+		</div>
+		<div id="movement" class="charpart">
+			<div class="title">Movement
+			</div>
+		</div>
+
+	</div>
+	<!-- Overlays -->
+	</page>
+	<page size="A4" class=""> 
+		<div class="container">
+			<div id="skills" class="charpart skillcharpart">
+				<div class="title">Skills</div>
+				<div id="listOfSkills" class="table"><div class="tableHead"><div class="cell" style="width: 40%;">Name</div><div class="cell" style="width: 12%;">Base</div><div class="cell" style="width: 12%;">Total</div><div class="cell" style="width: 12%;">CP</div><div class="cell" style="width: 12%;">Roll</div><div class="cell" style="width: 12%;">Total Roll</div></div></div>
+				<div id="listOfSkillsNoRoll" class="table"></div>
+				<div id="skillsCost" class="cost">
+				Total Cost : 0
+				</div>
+				<div id="addSkillsdiv" class="center">
+					<div id="showSkillsOverlay" class="button showable noprint">Change Skills</div>
+				</div>
+			</div>
+			<div id="powers" class="charpart powercharpart">
+			<div class="title">Powers
+				</div>
+				<div id="listOfPowers"></div>
+				<div id="addPowerdiv" class="center">
+					<div id="showPowersOverlay" class="button showable noprint">Add Power</div>
+				</div>
+			</div>
+			<div id="complications" class="charpart">
+				<div class="title">Complications
+				</div>
+			</div>
+		</div>
+	</page>
+	<div id="SkillsOverlay" class="overlay hidden" style="display: none;">
+		<div id="skillsPanel" class="overlayPanel">
+			<div class="panelHolder">
+				<div class="title">Add Skill or Category</div>
+				<div class="panelTable">
+					<div class="panelSegment">
+						<div class="panelCell">Agility Skills</div>
+						<div class="panelCell"><select id="selectskillsAgility"><option id="optionAgilityAcrobatics">Acrobatics</option><option id="optionAgilityBreakfall">Breakfall</option><option id="optionAgilityClimbing">Climbing</option><option id="optionAgilityCombat Driving">Combat Driving</option><option id="optionAgilityCombat Piloting">Combat Piloting</option><option id="optionAgilityContortionist">Contortionist</option><option id="optionAgilityFast Draw">Fast Draw</option><option id="optionAgilityLockpicking">Lockpicking</option><option id="optionAgilityRiding">Riding</option><option id="optionAgilitySleight of Hand">Sleight of Hand</option><option id="optionAgilityStealth">Stealth</option><option id="optionAgilityTeamwork">Teamwork</option></select></div>
+							<div class="panelCell">
+								<div id="AgilitySelected" class="inline-flex"><div>Everyman<input type="checkbox" id="emcAcrobatics"></div><div class="addButton" id="addButtonAcrobatics">Add</div></div>
+							</div>
+					</div>
+					<div class="panelSegment">
+							<div class="panelCell">Intellect Skills</div>
+							<div class="panelCell"><select id="selectskillsIntellect"><option id="optionIntellectAnalyze">Analyze</option><option id="optionIntellectComputer Programming">Computer Programming</option><option id="optionIntellectConcealment">Concealment</option><option id="optionIntellectCriminology">Criminology</option><option id="optionIntellectCryptography">Cryptography</option><option id="optionIntellectDeduction">Deduction</option><option id="optionIntellectDemolitions">Demolitions</option><option id="optionIntellectDisguise">Disguise</option><option id="optionIntellectElectronics">Electronics</option><option id="optionIntellectForensic Medicine">Forensic Medicine</option><option id="optionIntellectInventor">Inventor</option><option id="optionIntellectLipreading">Lipreading</option><option id="optionIntellectMechanics">Mechanics</option><option id="optionIntellectMimikry">Mimikry</option><option id="optionIntellectParamedics">Paramedics</option><option id="optionIntellectSecurity Systems">Security Systems</option><option id="optionIntellectShadowing">Shadowing</option><option id="optionIntellectSurvival">Survival</option><option id="optionIntellectSystems Operation">Systems Operation</option><option id="optionIntellectTactics">Tactics</option><option id="optionIntellectTrackin">Trackin</option><option id="optionIntellectVentriloquism">Ventriloquism</option></select></div>
+							<div class="panelCell">
+								<div id="IntellectSelected" class="inline-flex"><div>Everyman<input type="checkbox" id="emcAnalyze"></div><div class="addButton" id="addButtonAnalyze">Add</div></div>
+							</div>
+					</div>
+					<div class="panelSegment">
+							<div class="panelCell">Interaction Skills</div>
+							<div class="panelCell"><select id="selectskillsInteraction"><option id="optionInteractionActing">Acting</option><option id="optionInteractionAnimal Handler">Animal Handler</option><option id="optionInteractionBribery">Bribery</option><option id="optionInteractionBugging">Bugging</option><option id="optionInteractionBureaucratics">Bureaucratics</option><option id="optionInteractionCharm">Charm</option><option id="optionInteractionConversation">Conversation</option><option id="optionInteractionHigh Society">High Society</option><option id="optionInteractionInterrogation">Interrogation</option><option id="optionInteractionOratory">Oratory</option><option id="optionInteractionPersuasion">Persuasion</option><option id="optionInteractionStreetwise">Streetwise</option><option id="optionInteractionTrading">Trading</option></select></div>
+							<div class="panelCell">
+								<div id="InteractionSelected" class="inline-flex"><div>Everyman<input type="checkbox" id="emcActing"></div><div class="addButton" id="addButtonActing">Add</div></div>
+							</div>
+					</div>
+					<div class="panelSegment">
+						<div class="panelCell">Background Skills</div>
+						<div class="panelCell"><select id="selectskillsBackground"></select></div>
+							<div class="panelCell">
+								<div id="BackgroundSelected" class="inline-flex"></div>
+							</div>
+					</div>
+					<div class="panelSegment">
+						<div class="panelCell">Combat Skills</div>
+						<div class="panelCell"><select id="selectskillsCombat"><option id="optionCombatWeapon Familiarity">Weapon Familiarity</option></select></div>
+							<div class="panelCell">
+								<div id="CombatSelected" class="inline-flex"><div>Everyman<input type="checkbox" id="emcWeapon Familiarity"></div><div class="addButton" id="addButtonWeapon Familiarity">Add</div></div>
+							</div>
+					</div>
+					<div class="panelSegment">New Skill!</div>
+					<div class="panelSegment">Skill Enhancers</div>
+					<div class="panelSegment">Skill Levels</div>
+					<div class="panelSegment">Languages</div>
+				</div>
+			<div id="hideSkillsOverlay" class="closeButton hideable button">Close</div>
+		</div>
+	</div>
+	<div id="PowersOverlay" class="overlay hidden" style="display: none;">
+		<div id="powersPanel" class="overlayPanel">
+			<div class="panelHolder">
+				<div class="title">Add Skill or Category</div>
+				<div class="panelTable">
+					<div class="panelSegment">
+						<div class="panelCell">Agility Skills</div>
+						<div class="panelCell"><select id="selectskillsAgility"></select></div>
+							<div class="panelCell">
+								<div id="AgilitySelected" class="inline-flex"></div>
+							</div>
+					</div>
+					<div class="panelSegment">
+							<div class="panelCell">Intellect Skills</div>
+							<div class="panelCell"><select id="selectskillsIntellect"></select></div>
+							<div class="panelCell">
+								<div id="IntellectSelected" class="inline-flex"></div>
+							</div>
+					</div>
+					<div class="panelSegment">
+							<div class="panelCell">Interaction Skills</div>
+							<div class="panelCell"><select id="selectskillsInteraction"></select></div>
+							<div class="panelCell">
+								<div id="InteractionSelected" class="inline-flex"></div>
+							</div>
+					</div>
+					<div class="panelSegment">
+						<div class="panelCell">Background Skills</div>
+						<div class="panelCell"><select id="selectskillsBackground"></select></div>
+							<div class="panelCell">
+								<div id="BackgroundSelected" class="inline-flex"></div>
+							</div>
+					</div>
+					<div class="panelSegment">
+						<div class="panelCell">Combat Skills</div>
+						<div class="panelCell"><select id="selectskillsCombat"></select></div>
+							<div class="panelCell">
+								<div id="CombatSelected" class="inline-flex"></div>
+							</div>
+					</div>
+					<div class="panelSegment">New Skill!</div>
+					<div class="panelSegment">Skill Enhancers</div>
+					<div class="panelSegment">Skill Levels</div>
+					<div class="panelSegment">Languages</div>
+				</div>
+			<div id="hideSkillsOverlay" class="closeButton hideable button">Close</div>
+		</div>
+	</div>
+	
+</div></div></body></html>
