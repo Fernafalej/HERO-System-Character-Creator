@@ -3070,6 +3070,7 @@ function deleteSkill(){
 	if(s== ""){
 		return;
 	}
+	console.log(s);
 	var v = variables.skills[s];
 	var t = v.type;
 	var opt = document.getElementById("selectDelete"+s);
@@ -3077,26 +3078,32 @@ function deleteSkill(){
 		opt.id = "option"+v.type+s;
 		opt.parentNode.removeChild(opt);
 		document.getElementById("selectskills"+v.type).appendChild(opt);
-		console.log(skills[s]);
+		document.getElementById(s).parentNode.parentNode.removeChild(document.getElementById("row"+s));
+		delete variables.skills[s];
+		variables.totalCosts.skills.update();
+		showStandardSkill(s);
 	}else{
-		console.log(v.categories);
-		while(v.categories.length>0){
-			v.possibleCategories.push(v.categories.pop());
+		while(skills[s].categories.length>0){
+			skills[s].possibleCategories.push(v.categories.pop());
 		}
-		console.log(v.categories);
-		if(v.usesSubcategories == true){
-			while(v.subcategories.length>0){
-				v.subcategories.pop();
+		if(skills[s].usesSubcategories == true){
+			while(skills[s].subcategories.length>0){
+				skills[s].subcategories.pop();
 			}
 		}
+		opt.parentNode.removeChild(opt);
+		document.getElementById(s).parentNode.parentNode.removeChild(document.getElementById("row"+s));
+		delete variables.skills[s];
+		variables.totalCosts.skills.update();
+		showCategorizedSkill(s);
 	}
-	showStandardSkill(s);
-	document.getElementById(s).parentNode.parentNode.removeChild(document.getElementById("row"+s));
+
+	
 	
 	
 	//TODO remove skillRow
 	//TODO add skill options
 	//TODO remove delete option
-	delete variables.skills[s];
-	variables.totalCosts.skills.update();
+	//delete variables.skills[s];
+	//variables.totalCosts.skills.update();
 }
