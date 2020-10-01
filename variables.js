@@ -341,6 +341,37 @@ var variables = {
 				//TODO rounding
 			}
 		},
+		"Physical Defense":{
+			"name": "Physical Defense",
+			"abr" : "PD",
+			"base": 2,
+			"cost": 1,
+			"secondary": true,			
+			"value": 2,
+
+			"totalV":8,
+			"totalMods": [
+			],
+			"totalR" : "",
+			"totalRMods":[
+			],
+			"pings":[
+				["totalCosts","characteristics"],
+			],
+			"update":function(){
+				updateCharacteristic(this);
+			},
+			"totalCost":function (){
+				return Math.ceil((this.value-this.base)*this.cost); //returns the total CP cost
+			},
+			"roll": function(){
+				if(this.secondary){
+					return ""; //secondary have no roll
+				}
+				return (Math.round((9+this.value/5).toString()) +"-");
+				//TODO rounding
+			}
+		},
 		"Energy Defense":{
 			"name": "Energy Defense",
 			"abr" : "ED",
@@ -566,7 +597,10 @@ var variables = {
 			document.getElementById("cte").innerHTML = cte;
 			document.getElementById("unspentComp").innerHTML = unspentComp;
 		}
-	}
+	},
+	"powers":{
+		
+	},
 }
 
 function updateCharacteristic(ch){
@@ -616,4 +650,29 @@ function ping(p){
 		obj.update();
 		obj = variables;
 	}
+}
+
+function updateExp(){
+	var exp = variables.exp;
+	exp.startEXP = document.getElementById("startEXP").valueAsNumber;
+	exp.expEarned = document.getElementById("expEarned").valueAsNumber;
+	exp.startComp = document.getElementById("startComp").valueAsNumber;
+	exp.compEarned = document.getElementById("compEarned").valueAsNumber;
+	
+	var totalComp = exp.startComp+exp.compEarned;
+	var cte = 0; //TODO
+	var totalEXP = exp.startEXP+exp.expEarned + cte;
+	var expSpent = 0;
+	for(var i in variables["totalCosts"]){
+		expSpent += variables["totalCosts"][i].value;
+	}
+	var expUnspent = totalEXP-expSpent;
+	var unspentComp = totalComp-cte;
+	
+	document.getElementById("totalExp").innerHTML = totalEXP;
+	document.getElementById("totalExpSpent").innerHTML = expSpent;
+	document.getElementById("unspentExp").innerHTML = expUnspent;
+	document.getElementById("totalComp").innerHTML = totalComp;
+	document.getElementById("cte").innerHTML = cte;
+	document.getElementById("unspentComp").innerHTML = unspentComp;
 }

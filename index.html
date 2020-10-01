@@ -7,13 +7,14 @@
 	<script src = "variables.js"></script>
 	<script src = "skills.js"></script>
 	<script src = "script.js"></script>
+	<script src = "powers.js"></script>
 	<link rel="stylesheet" href="style.css" title="Basic">
 	
 </head>
 <body>
 	<!--<page size="A4" id="infoPage" class="hidden">-->
-	<div id ="settingsbar"class="noprint">
-		HI
+	<div id ="settingsbar" class="noprint">
+		Zahnrad
 	</div>
 	<page size="A4" id="infoPage" class="hidden">
 		<div id="playerinfo"></div>
@@ -234,15 +235,33 @@
 							</div>
 					</div>
 				</div>
-			<div id="hideSkillsOverlay" class="closeButton hideable button">Close</div>
+				<div id="hideSkillsOverlay" class="closeButton hideable button">Close</div>
+			</div>
 		</div>
 	</div>
 	<div id="PowersOverlay" class="overlay hidden">
 		<div id="powersPanel" class="overlayPanel">
 			<div class="panelHolder">
-				<div class="title">Add Skill or Category</div>
+				<div class="title">Add Powers</div>
 				<div class="panelTable">
 					<div class="panelSegment">
+						
+					</div>
+					<div>
+						<div class=""> 
+							Power Calculator
+							<input id ="PowerCalcBP" min="0" type="number" class="PowerCellInputNumber" onchange="redrawPowerCalc()"/> BP 
+							<input id ="PowerCalcAdders" min="0" type="number" class="PowerCellInputNumber"  onchange="redrawPowerCalc()"/> Adders 
+							<input id ="PowerCalcAdvantages" min="0" type="number" class="PowerCellInputNumber" step="0.25" onchange="redrawPowerCalc()"/> Advantages 
+							<input id ="PowerCalcLimitations" min="0" type="number" class="PowerCellInputNumber" step="0.25" onchange="redrawPowerCalc()"/> Limitations
+							<span id="PowerCalcAP"> 0 AP
+							</span>
+							<span id="PowerCalcRP">
+							0 RP
+							</span>
+						</div>
+					</div>
+					<!--<div class="panelSegment">
 						<div class="panelCell">Agility Skills</div>
 						<div class="panelCell"><select id ="selectskillsAgility"></select></div>
 							<div class="panelCell">
@@ -280,9 +299,10 @@
 					<div class="panelSegment">New Skill!</div>
 					<div class="panelSegment">Skill Enhancers</div>
 					<div class="panelSegment">Skill Levels</div>
-					<div class="panelSegment">Languages</div>
+					<div class="panelSegment">Languages</div> -->
 				</div>
-			<div id="hideSkillsOverlay" class="closeButton hideable button">Close</div>
+				<div id="hidePowersOverlay" class="closeButton hideable button">Close</div>
+			</div>
 		</div>
 	</div>
 	</body>

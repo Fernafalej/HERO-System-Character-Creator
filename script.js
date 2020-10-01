@@ -7,11 +7,50 @@ window.onload = function (){
 	//variables["characteristics"]["Dexterity"].update();
 	//generateCharacteristics();
 	//generateStats();
-	generateEXP();
-	skills.Acrobatics.add();
+	//addSkill("Acrobatics");
 	generateAddSkillSelects();
 	redrawSkills();	
 }
+
+function save(filename){
+	var save = {
+		variables: variables,
+	};
+	if(filename == undefined){
+		filename = "default";
+	}
+	localStorage.setItem(filename,JSON.stringify(save));
+}
+
+function load(save){
+	var savegame = JSON.parse(localStorage.getItem(save));
+	if (savegame != undefined){
+		variables = savegame.variables;	
+	}
+	//TODO
+}
+
+function exportFile(file){
+	save(file);
+	let c = new Blob([JSON.stringify(variables)], {type: "text/plain"})
+	window.URL = window.URL || window.webkitURL;
+	let a = document.createElement("a")
+	a.href = window.URL.createObjectURL(c)
+	a.download = file+".txt"
+	a.click()
+}
+
+function importFile(file){
+    let loadgame = "";
+    //????? TODO
+	reader.readAsText(document.getElementById("import").files[0]);
+      
+    loadgame=JSON.parse(reader.result)
+    if (loadgame !== "") {
+		loadGame(loadgame);
+	}
+}
+
 
 function loadEventListeners(){
 	loadShowable();
@@ -44,7 +83,7 @@ function generateCharacteristics(){
 			//TODO
 				var stat = variables["characteristics"][this.id.substring(5)];
 				stat.value = this.valueAsNumber;
-				stat.update();
+				updateCharacteristic(stat);
 			}
 		)
 		row[1].appendChild(input);
@@ -52,7 +91,7 @@ function generateCharacteristics(){
 		row[3].id = stat.name+"CP";
 		row[4].id = stat.name+"Roll";
 		row[5].id = stat.name+"TotalRoll";
-		stat.update();
+		updateCharacteristic(stat);
 	}
 }
 
@@ -62,7 +101,7 @@ function generateEXP(){
 	input.value = variables.exp.startEXP;
 	input.addEventListener("input",function(){
 			variables.exp.startEXP = this.valueAsNumber;
-			variables.exp.update();
+			updateExp();
 		}
 	)
 	//Earned EXP
@@ -70,14 +109,14 @@ function generateEXP(){
 	input.value = variables.exp.expEarned;
 	input.addEventListener("input",function(){
 			variables.exp.expEarned = this.valueAsNumber;
-			variables.exp.update();
+			updateExp();
 		}
 	)
 	input = document.getElementById("startComp");
 	input.value = variables.exp.startComp;
 	input.addEventListener("input",function(){
 			variables.exp.startComp = this.valueAsNumber;
-			variables.exp.update();
+			updateExp();
 		}
 	)
 	
@@ -86,7 +125,7 @@ function generateEXP(){
 	input.value = variables.exp.compEarned;
 	input.addEventListener("input",function(){
 			variables.exp.compEarned = this.valueAsNumber;
-			variables.exp.update();
+			updateExp();
 		}
 	)
 }
@@ -226,6 +265,11 @@ function generateAddSkillSelects(){
 		generateDeleteSkillOptions(s);
 	}
 }
+function copy(obj){
+	var obj2 = Object.assign({},obj);
+	return Object.assign(obj2, JSON.parse(JSON.stringify(obj)));
+}
+
 function generateDeleteSkillOptions(skill){
 	var opt = document.createElement("option");
 	opt.innerHTML = variables.skills[skill]["name"];
@@ -277,4 +321,21 @@ function showElement(element){
 }
 function hideElement(element){
 	element.style.display = "none";
+}
+
+
+function redrawPowerCalc(){
+	let BP = document.getElementById("PowerCalcBP").valueAsNumber;
+	let Adders = document.getElementById("PowerCalcAdders").valueAsNumber;
+	let Advantages = document.getElementById("PowerCalcAdvantages").valueAsNumber;
+	let Limitations = document.getElementById("PowerCalcLimitations").valueAsNumber;
+	
+	let AP = document.getElementById("PowerCalcAP");
+	let RP = document.getElementById("PowerCalcRP");
+	
+	let temp = Math.round(((BP+Adders)*(1+Advantages)-0.1));
+	AP.innerHTML = temp+ " AP";
+	
+	temp = Math.round(temp/(1+Limitations)-0.1);
+	RP.innerHTML = temp +" RP";
 }

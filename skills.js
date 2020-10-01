@@ -2645,7 +2645,7 @@ function addRollSkill(name){
 	//TODO check for skill levels
 	//TODO check for skill enhancers
 	var skill = skills[name];
-	variables["skills"][skill.name] = skill;
+	variables["skills"][skill.name] = copy(skill);
 	if(skill.basedOn != "nothing"){
 		variables["characteristics"][skill.basedOn]["pings"].push(["skills",skill.name]);//TODO
 	}
@@ -2946,7 +2946,7 @@ function showCategorizedSkill(name){
 }
 function addCategorizedSkill(name){
 	var skill = skills[name];
-	variables["skills"][skill.name] = skill;
+	variables["skills"][skill.name] = copy(skill);
 	if(skill.basedOn != "nothing"){
 		variables["characteristics"][skill.basedOn]["pings"].push(["skills",skill.name]);//TODO
 	}
@@ -3061,7 +3061,19 @@ function descriptionCategorizedSkill(name){
 	if(skill.level == -1)return string +" (Proficient)";
 	return string.toString();
 }
-function removeCategorizedSkill(name){}
+function removeCategorizedSkill(name){
+	
+	//TODO
+}
+
+function addSkill(name){
+	if(skills[name].usesSubcategories != undefined){
+		addCategorizedSkill(name);
+	}
+	else{
+		addRollSkill(name);
+	}
+}
 
 function deleteSkill(){
 	

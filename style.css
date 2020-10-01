@@ -78,7 +78,15 @@ page[size="A4"] {
 	grid-row:1 / 2;
 }*/
 #settingsbar{
-	height:20px; 
+	background-color: white;
+	top : 0;
+	right: 0;
+	width: min-width;
+	position: fixed;
+}
+#settingsbar:hover{
+	background-color: white;
+	left: 0;
 }
 .container{
 	display:flex;
@@ -290,4 +298,18 @@ page[size="A4"] {
 .inline-flex{
 	display:inline-flex;
 	//flex-wrap:column;
+}
+.PowerCellInputNumber{
+	width:40px;
+	font-family: inherit;
+	border: 0px;
+	-moz-appearance:textfield;
+	text-align: center;
+	background-color:transparent;
+	font-size: inherit;
+}
+
+.PowerCellInputNumber:hover{
+	//background-color:#d0d0d0;
+	-moz-appearance:none;
 }
